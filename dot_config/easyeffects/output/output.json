@@ -1,0 +1,15 @@
+{
+    "output": {
+        "blocklist": [],
+        "crossfeed#0": {
+            "bypass": false,
+            "fcut": 700,
+            "feed": 4.5,
+            "input-gain": 0.0,
+            "output-gain": 0.0
+        },
+        "plugins_order": [
+            "crossfeed#0"
+        ]
+    }
+}

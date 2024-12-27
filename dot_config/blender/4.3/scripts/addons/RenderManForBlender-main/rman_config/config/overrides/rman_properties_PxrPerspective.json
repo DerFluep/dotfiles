@@ -1,0 +1,15 @@
+{
+    "name": "PxrPerspective.args",
+    "params": [
+        {
+            "name": "focalLength",    
+            "slidermin": 2,
+            "slidermax": 3500
+        },
+        {
+            "name": "focalDistance",    
+            "slidermin": 0.1,
+            "slidermax": 1000
+        }        
+    ]
+}

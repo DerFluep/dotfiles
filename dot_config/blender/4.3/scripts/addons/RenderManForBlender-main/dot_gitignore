@@ -1,0 +1,6 @@
+__pycache__/
+/.project
+RenderManAssetLibrary/
+rendermanforblender_updater/
+.vscode/
+.DS_Store

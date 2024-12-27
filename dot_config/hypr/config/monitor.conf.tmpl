@@ -1,0 +1,21 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃                     Monitor Configuration                   ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+# Monitor wiki https://wiki.hyprland.org/0.45.0/Configuring/Monitors/
+
+monitor=,preferred,auto,1
+{{- if eq .chezmoi.hostname "jp-pc" }}
+monitor=DP-2,3840x2160@60,0x0,1.5
+monitor=DP-1,2560x1440@170,2560x0,1,vrr,2
+monitor=HDMI-A-1,disable
+
+workspace = 1, monitor:DP-1
+workspace = 2, monitor:DP-1
+workspace = 3, monitor:DP-1
+
+workspace = 4, monitor:DP-2
+workspace = 5, monitor:DP-2
+workspace = 6, monitor:DP-2
+workspace = 7, monitor:HDMI-A-1
+{{- end}}

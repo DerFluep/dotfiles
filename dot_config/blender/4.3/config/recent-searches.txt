@@ -1,0 +1,18 @@
+  PxrRodLightFilter
+  PxrCookieLightFilter
+  PxrIntMultLightFilter
+   Scene.ViewLayer.0001.exr
+Add (Shift A) ▸ Input ▸ Layer Weight
+RenderMan ▸ Bxdfs ▸ Lama ▸ Lama nodes ▸ LamaLayer
+RenderMan ▸ Bxdfs ▸ Lama ▸ Lama nodes ▸ LamaDiffuse
+Add (Shift A) ▸ RenderMan ▸ Bxdfs ▸ Lama ▸ Lama nodes ▸ LamaDielectric
+   Material.001
+ 0 Material
+ 0 Material.001
+   Viewer Node
+   Material
+Add (Shift A) ▸ RenderMan ▸ Patterns ▸ Texture ▸ PxrTexture
+Add (Shift A) ▸ RenderMan ▸ Patterns ▸ Bump ▸ PxrNormalMap
+   PxrRectLight
+Add (Shift A) ▸ RenderMan ▸ Bxdfs ▸ Lama ▸ Lama nodes ▸ LamaDiffuse
+Add (Shift A) ▸ RenderMan ▸ Patterns ▸ Bump ▸ PxrBumpRoughness

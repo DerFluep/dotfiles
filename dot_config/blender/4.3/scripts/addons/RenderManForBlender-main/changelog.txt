@@ -1,0 +1,605 @@
+v26.1, April 24, 2024
+
+Bug Fixes:
+* Fixed bugs related to refreshing an OSL shader via the PxrOSL shading node
+* Fixed a bug that caused the field of view to no be calculated correctly when 
+using an orthographic camera
+* Fixed a bug that caused integrators to use the wrong settings during IPR
+* Fixed a bug that caused instances created via geometry nodes to have the 
+wrong material attached
+
+v26.0, April 02, 2024
+
+New Features:
+* Blender 3.6 and 4.1 are now officially supported. Note, the Qt framework is not
+supported in 4.1
+* Viewport renders can now use the RenderMan AI denoiser as well as the OptiX denoiser.
+* Add a new menu item in the shader graph to convert selected Cycles image nodes 
+to PxrTexture nodes. This is useful when dragging and dropping image files from the file
+browser to the shader graph.
+
+Changes:
+* For the material properties panel, we now display only the current selected node, rather
+than inlining all connections. This can be turned off in the preferences.
+* You can now specify the namespace for user attributes. Default is "user".
+* Shorten the name for the PxrSurface lobe checkboxes.
+* The Blender Subdivision Surface modifier's levels setting (viewport and render) now
+works with RenderMan. Note, RenderMan's subdivision mesh scheme attribute still takes
+precedence over the modifier.
+
+Bug Fixes:
+* Fix issues with texturing being incorrect for PxrDomeLight in the viewport.
+* Orientation of the PxrEnvDayLight was incorrect in the viewport. This change will cause 
+look differences in older scenes.
+* Fix a number bugs related to child objects not inherting attributes from their
+parents correctly. 
+* Fix a bug that was causing exporting of hair curves object to be slow.
+* Fix an issue where metaballs did not render in Blender 3.6
+
+v25.2, June 29, 2023
+
+Changes:
+* Changing the diffuseColor parameter when using PxrDiffuse should now update
+the viewport color of the object, similar to PxrSurface.
+
+Bug fixes:
+* Fixed a bug where perspective view was incorrectly taking into account the render 
+camera's shift_x and shift_y properties.
+* Fixed issue where <br> was not getting correctly substititued in the tooltips
+* Fixed a bug where blender_batch would fail when using Blender 3.5
+* Fixed an issue with using numpy.int when using Blender 3.5.
+* Fixed a bug where node names with a ':' character in them would cause shading errors
+* Fixed a bug where updating the parameters of any stylized filters would not update correctly
+during IPR.
+
+v25.1, June 1, 2023
+
+Changes:
+* Blender 3.1 to 3.5 are now officially supported.
+* Support for 2.83 has been dropped. The minimum version supported is 2.93.
+
+Bug Fixes:
+* Fixed an issue with UV maps not working correctly with geometry nodes instances
+* Fixed a bug that prevented PxrVariable from working in a shading network
+* Fixed bugs that prevented the use of color to float, or float to color connections from working
+* Fixed a bug where the PxrStylizedControl pattern node was not getting correctly added when using
+the Stylized Looks UI.
+
+v25.0 April 17, 2023
+
+New Features:
+* You can now use the Qt version of the preset browser and texture manager, which 
+matches what is available in the other RenderMan DCC plugins. To use the Qt version, 
+go to the addon preferences and change UI Framework from Native to Qt
+* Blender's "Persistent Data" option is now supported. This is mostly useful in batch rendering 
+where for subsequent frames only differences in the scene are calculated, rather than 
+re-generating the whole scene. Note, this option is off by default.
+* For external/batch rendering using Blender Batch style, there is a new Frame Chunking option, 
+which specifies how many frames each blender process will render (previously, each 
+blender process would only do one frame).
+* We now auto load the Blender's builtin Node Arrange addon. This allows for auto 
+arranging nodes in the shader graph.  Two of the operators have been added to the RenderMan 
+right click context menu.
+
+Changes:
+* Scene translation time has been improved. In some cases, as much as 27% speed improvement 
+has been seen.
+* IPR to "it" is no longer a separate setting. To IPR to "it", right click in the Viewport, 
+and go to RenderMan->Render->IPR to it.
+* Support for fluid meshes has been added.
+* We now export two new user attributes: "user:blender_is_instance" and "user:blender_instance_uv". 
+If "user:blender_is_instance" is set to 1, this indicates that the current object is an instance.
+* For subdivision meshes, you can now select a face map to act as holes for your mesh (note, 
+this does not work in XPU).
+* Socket names for terminal nodes (ex: RenderMan Material, Bxdf etc) have been renamed. For example, 
+old name (Bxdf), new name (bxdf_in). This is to match the names used in our other DCC plugins.
+* Editing attributes or options during IPR should be faster.
+* For meshes, exporting of the tangent and bitangent vectors is now off by default. 
+* The default Subsurface Model for PxrSurface has changed from "Jensen Dipole" to 
+"Exponential Path Traced". If you would like to revert the default back to "Jensen Dipole", 
+you can create an override json file for PxrSurface. The json file would look something like this:
+
+{
+    "name": "PxrSurface.args",
+    "params": [
+        {
+            "name": "subsurfaceType",   
+            "default": 0,
+            "always_write": true
+        }
+    ]
+}
+See Customizing Blender in the docs on how to install this override file.
+
+* The clapboard icon in the viewport will now first display an option to either render in
+the viewport or to "it"
+* For float ramps, you can now select the interpolation type to be used
+* You can now change the zoom factor for the Enhance operator in the addon preferences
+* We now draw the texture map for gobo and cookie light filters, if the draw textured lights option
+is turned on
+* The External Rendering panel has been renamed to Batch Rendering
+* We now use "it" for the preview image task for our batch render jobs, instead of "sho".
+* Volumes are now added to the "global volume aggregate" by default. If you want to turn off this
+behavior, turn off the "Global Volume Aggregate" checkbox on volume object properties. 
+
+Bug Fixes:
+* Fixed issues with instancing using geometry nodes.
+* Fixed issue where channels in the stylized output were in random order
+* Fixed issue where the FOV was not correct when the camera sensor width was not default, 
+and viewport was in perspective mode
+* Fixed issue where using the cookie or gobo light filters was slow in the viewport
+* Fixed numerous issues with group nodes in the shader graph.
+* Frame step setting should not be respected when batch rendering in RIB mode.
+* Fixed issues with light linking when a light or an object are no longer in the scene.
+* Fixed issue where normals and vectors were not editable in the shader graph.
+* Fixed issue where the viewport render progress bar color was incorrect.
+* "it" inspector was displaying the wrong min/max samples for IPR
+* Various fixes for the package scene operator
+* Fix the viewport drawing of gobo and cookie light filters
+* Fixed a bug where UDIM textures from linked collections was not working
+
+
+v24.4 April 22, 2022
+
+Changes:
+* Live stats are now enabled by default in the preferences.
+* Setting the environment variable, RFB_BATCH_NO_PROGRESS, will disable progress printing during batch rendering via Blender.
+
+Bug Fixes:
+* Fix issue with depth of field not matching between viewport renders and preview renders
+* Fix issue where rotating dome lights would cause portal lights to rotate on the wrong axis.
+* An issue where textures in the texture manager would fail when materials/nodes were renamed has been addressed.
+* Fix issue where light filters were still being drawn in the viewport when they were deleted.
+* Holdouts should now render correctly when doing viewport renders
+* Lights are correctly hidden when the viewports overlays has been disabled
+* Fix an issue with progress not displaying correctly when rendering to "it". 
+
+v24.3 January 6, 2022
+
+New Features:
+* A cone shape will now be drawn in the viewport to represent the cone angle for lights that
+support the Cone Angle parameter, emulating behavior that is present in the other RenderMan DCC
+integrations. Light support this include PxrRectLight, PxrDiskLight, PxrSphereLight, and PxrCylinderLight.
+Two new properties, Cone Angle Depth and Cone Angle Opacity, controls the depth and opacity of the cone
+draw in the viewport.
+* Add a Reset entry in the viewport integrators menu. Selecting Reset will reset
+back to the scene integrator
+* Added a pref to turn off the use of the <blend_dir> token to reference
+relative paths
+
+Changes:
+* Rendering in the viewport with RIS should be slightly faster.
+* The UI for arrays has changed. The addon will try to update any older scenes to use the
+new arrays, but it is not guaranteed to work in all conditions, and may require
+rebuilding/reconnecting of the shader network.
+* The addon will now warn if the minor version of RenderMan selected is not compatible.
+* When rendering hair, the mesh vertex colors will be added to the hair
+as primitive variable "Cs".
+* You can now choose a separate UV map and vertex colors for hair other than the current
+active one.
+
+Bug Fixes:
+* Fixed an issue where importing SVGs as curves did not render correctly.
+* Fixed a bug where bump and presence were not connectable on PxrSurface
+* Fixed the enable parameter labels on PxrLayer
+* Fixed a bug that caused light linking of LightFilters to not work
+* Fixed an issue where the token was not working properly
+* Fixed an issue where inputAOV on PxrDisneyBsdf was not connectable
+* Fixed an issue where utilityInteger on LamaSurface was not connectable
+* Fixed an issue where the bump2roughness settings in the texture manager
+would reset after changes were applied.
+
+v24.2 November 9, 2021
+New Features:
+* Add a new Volume Aggregates editor. For more information on volume aggregates, see the documentation 
+(https://rmanwiki.pixar.com/display/RFB24/Aggregate+Volumes+in+Blender).
+* For PxrCamera projection, you can now select an object as tilt-shift focus object.
+* Add a new UI for adding user attributes.
+* Add a new preference that inverts the behavior of light linking. When enabled,
+only objects that are linked to a light will be illuminated.
+* Added a new preference to control collapsing of nodes when node soloing is turned on.
+* A new PackageScene operator has been added to the side N-panel. This will try to zip your scene
+and assets, so that it can be sent to support.
+* Tangent and bitangents are now exported as primitive variables for meshes.
+* Preset browser now has storage options for where assets such as textures for presets are saved.
+
+Changes:
+* We now ignore render regions if you're using "it" for IPR. If you need render region like behavior,
+use the crop window feature in "it".
+* Edits to ramps should now work with IPR. Using the "Force Refresh" button should no longer be required
+(requires your scene to be saved first).
+* PxrDiffuse will be used as a fallback if we don't have a Bxdf node connected to the
+RenderMan output node.
+* Clipping planes now work in IPR
+* We now respond to render regions during IPR. The Crop Winodw operator will now also draw a render region
+if used.
+* The CropWindow and Enhance/Zoom operators now also responds to the numpad enter key.
+* Solo/Unsolo button is now available in the side N-panel.
+* Connection and preset menus are now available in the side N-panel.
+* Motion blur hair should now be working
+* For particle emitters, we now use velocity as the basis for motion blur.
+* Add a new button to revert to regular Blender view layers, when RenderMan displays
+were enabled.
+* You can now change the default size of RenderMan shading nodes, using a JSON override file.
+* We now have a separate micropolygonlength control for volumes.
+* There's now a separate motion samples control for deformation motion blur.
+* For OpenVDB, there are now new controls: Filter Width, Density Multiplier, Density Rolloff
+* Ray number stats have been added to the live stats panel.
+* There is now a preference to control the amount of stats that are printed in the live stats panel.
+* Add a new clear unused textures button to the texture manager.
+
+Bug Fixes:
+* Fix issue with viewport rendering causing icons in the UI to corrupt.
+* Fix issues with redrawing the stats panel causing flickering
+* Fix a bug that cause importing of assets from the preset browser dropdown menu to fail
+* When converting a Blender point light, take the scale into account
+* Multiple fixes for node groups in shading networks.
+* Fix issue where Depth of Field did not update correctly during IPR.
+* Fix issue with displacement not working with per-face materials.
+* Fix issue where OptiX denoiser was not working when RenderMan displays was used.
+* Multiple fixes for the PxrOSL node.
+* PxrToFloat3 and PxrToFloat nodes will be automatically inserted when connections between
+floats and float3 types are used.
+* Fixed a bug that caused issues when importing presets with ramp nodes in them.
+* Fixed issues with PxrPortalLight's not inheriting intensity and light color correctly
+from the connected dome light.
+* Fixed multiple issues with linking to materials and objects from another Blender file,
+that included ramps
+* Node soloing nodes that are within node groups should now work.
+* Fix issue with viewport snapshot not working correctly when using the resolution multiplier
+* Fix issue with zoom/enhance not working correctly when using the resolution multiplier
+
+
+v24.1 July 30, 2021
+New Features:
+* Added initial support for Liquid Fluids.
+* Added shortcuts to the light linking, light mixer, and trace sets editor to the RenderMan tab (change by King-Wally)
+
+Bug Fixes:
+* Correct the variable type for the __st AOV.
+* Fixed issues with scalpST on hair not working properly with child particles.
+* Hair particles should now respect the Viewport Display Amount setting.
+* Fix issue with particles not motion blurring correctly.
+* Fix issue with primvars not exporting correctly on particles.
+
+v24.0.1 July 12, 2021
+New Features:
+* Certain specific lights will now be textured in the viewport (ex: PxrRectLight). This can be turned off in the preferences.
+* The wireframe drawing of lights can now be turned off in the preferences.
+* Added a new UI for adding user attributes
+* A new popover panel has been added to viewport to edit RenderMan viewport preferences
+* Some icons have been updated to higher resolution versions (change by King-Wally)
+
+Bug Fixes:
+* Fixed an issue where adding a RenderMan light failed. 
+* Fixed issue where connecting a PxrDisplace node to the RenderMan Output node in the shader editor failed
+* Addressed a problem where local view was not working for geometry
+* Fixed issue where the GPU override flag batch denoising failed
+* Fixed issue with preview rendering to the Blender render view failed when Render Region was on
+* Fixed odd shift in viewport when IPR is turned on.
+* Fixed issue that prevented curves from rendering.
+* Fixed issue where the variance file for denoising could not be found.
+* Fixed issue where ID's for instances were not consistent between blender batch renders.
+* Fixed progress printing for blender batch renders in LocalQueue
+* Fixed bug where duplicating shading nodes containing ramps failed.
+* Fixed issue where turning off Show Emitter on particles did not work
+* Fixed numerous issues for baking renders.
+* Fixed bug where muting lights did not work for preview and batch renders.
+* Fixed issue where hiding a collection failed.
+
+v24.0.0 June 29, 2021
+* Support for Blender 2.83 LTS and Blender 2.92.
+* Rendering inside of the Blender viewport.
+* RenderMan XPU and Stylized Looks support (a commercial license for these features is required).
+* A redesign of the Preset Browser.
+* New light linking, light mixer, and trace sets editors.
+* Texture Manager support
+
+v21.5.0 8/18/17
+* Heat grid now available for Blender smoke sims cached with OpenVDB
+* RIB formatting now works with IPR renders
+* Icons have been added to all ui panels that contain RenderMan settings
+* Numerous fixes to the preset browser
+* Light rig presets now have correct world rotation
+* Can now update crop window during IPR
+* Viewport diffuse and specular color controls now work
+* Auto updater has been temporarily removed
+* Materials can now be linked directly to an object instance
+* Update a few paths, URLs, and other details
+* Spell RenderMan with bi-caps in user visible strings
+* RenderManForBlender is now being released under the MIT license
+* Code contributed by adminradio, a-e-k, bsavery, jdent02, and Lightye
+
+v21.4.0 5/16/17
+* Support for PxrHairColor (per strand index)
+* Preset browser integration.  Found under the RenderMan tab in the View3D menu (press T).  This is an implementation of the same preset browser in RfM.  Allows you to share shader networks with RfM, and save and import your favorite materials, and apply them to selected objects.
+* Updates to the auto-updater.
+* A couple fixes and optimizations to baking.
+
+v21.3.0 4/15/17
+* Auto updater for addon added.  In the addon preferences there is settings for auto updating.  If
+left to the default it will check once a day with github and download any changes.
+Thanks to CG Cookie for contributing the example and JDent for implementing
+https://github.com/CGCookie/blender-addon-updater
+* Portal lights now must be parented under the corresponding Hemi light in the outliner.  They need this to get the rotation from the hemi light.
+* Material Baking is enabled now.  To use insert a PxrBakeTexture node in a shader graph and use the bake button.  (thanks to JDent)
+* OpenVDB files can be exported in place of an object or empty under the "Geometry Source" on the object properties
+* An object can be exported as an RiVolume cube using the bounding box under the "Primitive Type" in the object properties.
+* Fix Rotation of directional lights and other lights
+* Doing undo (ctrl+z) in IPR should no longer cause a crash.
+* MatteID can be set per object in the object properties.
+* Rib files now default to binary (smaller, faster) and can be zipped.  See the advanced render properties
+* Per lobe outputs for PxrSurface are available for AOV's
+* Various IPR fixes (MUCH MORE STABLE AND FASTER for material changes)
+* Fix IES profiles for lights
+* A few blender panels (example physics settings) were hidden, show them
+* Output settings notes when rendering to IT, view in the image properties.
+* An "id" primvar is available for particles (and hair) allowing random variations with PxrVary node.
+* innumerable other bug fixes.
+* As always thanks to jdent02 and rgordon for their help.
+
+
+v21.2.0 11/8/16
+* NOTE SIGNIFICANT CHANGE - Nodetrees are moved to use the built in cycles nodetree!
+  * This will help file linking and allow node groups.
+  * However you will have to redo your nodetrees.
+  * Cycles nodes can be used with RenderMan shaders.
+     * this is still a work in progress.  Some Cycles nodes will not function properly (or at all) with RenderMan.
+  * Using "add renderman nodetree" will attempt to convert and hook up your cycles nodetree.
+     * this is still a work in progress and won't give you an exact conversion.
+* New PxrSurface lobe AOV's.  Due to changes in codebase you will have to reassign any existing AOV's to avoid export errors.
+* Support for RenderMan 21 features - specifically new shaders and lights.
+* Portal lights are supported.
+* Light filters are added - using a light and set it to "Filter type", then link the filters to your lights.
+* Sample and display filters are now under the scene properties.
+* Support for all Projection plugins (VR rendering with OmniDirectional!) under the camera props.
+* Icons are updated to renderman 21 icons.
+* Render checkpointing and recovery are now supported with external rendering.
+* Fix for external rendering with spaces in the filename.
+* Thanks to rgordon, aek, jdent02, jdbener for contributions.
+
+
+v0.9.0 7/13/16
+* Many minor bug fixes
+* Texture sequences should work correctly. (use $F4 in texture name)
+* Linking files will pull in the material node tree from other files now automatically.  Appending you still must attach the node tree.
+* RMANTREE setting is more sensible and user friendly.  Set RMANTREE in addon preferences.  No need to worry about environment variables.
+* RIB archiving works.  Create a rib archive of your geometry to bake rib gen or export rib for other uses. (thanks to rgordon)
+* In the View3D toolbar now is a RenderMan toolbar tab, allowing many quick operations for convenience
+* Motion Blur now uses a shutter angle instead of 0-1
+* Default settings now match RenderMan for Maya
+* Light and object panels (in the scene properties)
+	* Here you can create and edit light and object groups
+	* Light and object groups can then be used in trace set settings (on lights etc) and in AOVs
+	* Also this is a convenient place to do all the light linking (works in IPR)
+	* During IPR light properties can be edited en masse here.  Also mute and solo lights
+* Render Selected button - quickly lets you render only a set of objects selected
+* Sampling presets to quickly change sampling settings (thanks rgordon)
+* Incremental rendering can now be disabled (it's on by default)
+* Rib generation should be more stable
+* default OUT directory is now /tmp
+* cache sizes options are now available in advanced scene settings
+* curves can render as ribbons now or round curves (default)
+* hair width correctly uses the Cycles settings rather than duplicating
+* High resolution smoke is supported (finally)
+* Darkfalloff is supported (thanks jdent) RenderMan 20.9 feature
+* Openexr renders can go to multilayer exrs for compositing (thanks Jdent)
+* some example files are provided - accesible though toolbar
+* Inline RIB boxes can now be inserted into the rib stream in various places (scene, world, object settings)
+* Major Render settings and workflow overhaul and simplification!
+	* Regular renders can be sent to Blender or 'it' as before, no need to set display driver
+	* External Renders are now an option for rendering outside of Blender.  These renders will NOT load results back into blender.  This allows users to spool batch renders to Pixar's LocalQueue or Tractor for network rendering.  See settings in Scene properties.
+	* When externally rendering crossframe denoise is supported.
+* Overhaul of layers UI, simple version, then switch to RenderMan passes for more advanced options.
+* DeepExr and multilayer outputs are supported.
+
+
+
+v0.8.0 03/22/2016
+* Lots of bug fixes!
+* Fix an issue with artifacts in denoise
+* Added controls for aperture shape to camera
+* Open last rib button for debugging
+* UDIM textures fix
+* Adding and Deleting lights in IPR should work now
+* Material color is set in Blender for viewport help
+* Support a "World" light that can be either daylight or an env map
+* Shader Parameters get soft min and maxes (can set values manually)
+* Point lights correct when moving in IPR
+* Copy and Pasting nodes should work
+* !!! Longstanding IPR bug, the initial rendering with IPR no longer locks up Blender.
+
+v0.7.0 11/06/2015
+* Light shapes for area lights area now a selector control not on the shader.  The shader setting will happen automagically.  Also the shape for distant/point/spot lights should be correct now.
+
+v0.6.0 8/20/2015
+* Light linking!
+* reconfigured rib generation.  The details are technical but in simple terms: output first the data blocks then instances of them.  The upshot is that rib generation takes about the same time, however we fixed a few issue with smoke/hair/etc having stale data or incorrect motion.  Also now rib generation caching should work correctly in all cases, and generating ribs with that on (and nothing changed) should be very fast.
+* Light linking and adding lights works while Interactive Rendering.
+
+v0.5.0 8/20/2015
+* Bunch of UI cleanup (object properties from @rendermouse)
+* Backed out some multi-material changes until we have a proper bxdf switch node
+* Custom AOVs as well as specifying a lpe light group or object group works (please let me know any issues with this)
+* Little prettier shader swatch previews
+* Crop windows/borders work.
+
+v0.4.0 8/3/2015
+* OSL should now support IPR
+* more example files
+* RIB generation rewrite.  ~6x speedup creating rib for gooseberry benchmark
+    * uv's across multi-material objects should now work
+    * multi-material objects now use the same geometry instead of splitting it.
+    * however the current limitation is that multi-material objects can't be emissive
+* Metaball support (Thanks to @rendermouse!)
+* better deformation and multi-segment motion blur ribs.
+
+v0.3.0 7/31/2015
+* OSL nodes experimental support!  Currently does not support IPR thanks to @mwy5310
+* example files directory (will be more added)
+
+v0.2.7 7/13/2015
+* IPR stability and speed is increased significantly.
+* Collapsing of parameters in node tree.
+
+v0.2.7 7/13/2015
+* Bunch of bug fixes and speedups to rib gen
+* Move DOF settings to camera
+* Textures are made to repeat (periodic) by default
+* Motion Blur settings are now in a separate panel
+* PxrTexture Nodes get an automatic Manifold attached.
+
+v0.2.6 7/13/2015
+* Cleanup ribgen a bit
+* Re-enabled Archive paths
+* Objects Geometry is output to a rib archive either under $SCENE/archives/static or $SCENE/archives/$FRAME_NUM if animated.
+* Objects Geometry is only output if the object is updated.  For example if a scene is created, rendered, then
+re-rendered, the geometry would not be re-ribgenned.  However if the object was updated in blender, it would update the rib.  This will greatly speed ribgens but may cause issues if somehow an object is updated but the timestamp not updated.
+In this case the archives directory can simply be removed, or the objects rib archive individually.
+
+v0.2.5 7/13/2015
+* INTERACTIVE RENDERING IS HERE!!!!
+	- To start (for now), you have to have 'it' installed with the RenderMan Studio package.
+	- Go to the scene properties, in the interactive sampling section hit start interactive
+	- Only supports material edits, light moves/edits and camera moves for now.
+
+v0.2.4 7/13/2015
+* Couple bug fixes:
+	- 'it' is autolaunched if you have RMSTREE in your path or RenderMan Studio installed
+	- some path issues with textures
+* Primary visibility for area lights (Environment lights in particular) is now on by default.
+* custom UV's now export correctly
+
+v0.2.3 7/13/2015
+* Performance improvements of default settings.
+* Integration of AtomicP's curve changes.
+
+v0.2.2 7/09/2015
+* Added Support for PxrCamera physical attributes.  In the camera properties click "Use physical Camera"
+
+v0.2.1 7/09/2015
+* Added Denoise under the RenderMan Output Settings
+* Changed output directory to go under Documents (or My Documents on Windows)/prman_for_blender
+	- can be changed under the addon preferences
+
+v0.2.0 7/07/2015
+* Basic functionality for RIS rendering present including
+	- Lights
+	- Node based material trees
+	- Hair and other geometry support
+	- AOV (Render Passes)
+
+v0.1.1 25/03/2015
+* Forked 3delight_blender code to prman for blender
+* Changed env variables to use RMANTREE for RenderMan 19.0
+* Changed RIB output for 19.0 specific construct (integrator, bxdf, etc)
+* TODO - proper shader network support of bxdf/pattern via args files
+        - integrator settings and general settings cleanup
+        - move to RenderMan python plugin for rib integration
+        - lights integration
+        - general code cleanup
+
+!!!!! ------------ blender to prman fork -------------- !!!!!
+
+v0.7.5 - 25/04/2012
+* Enabled editable output paths, including RIB file export, shadow maps, and point clouds. These path properties support using environment variables, or other blender data variables that are built in to the exporter. Environment variables can be read from outside blender, or default environment variables can be edited from within the Environment Variables panel in Render Properties.
+More info at: http://mattebb.com/3delightblender/documentation/
+* Added option to either both export RIB and render interactively, or just export the RIB (better for render farms)
+* Added choose of Display Drivers - currently accepted are 'auto' (integrated in blender image editor), idisplay, and tiff.
+* Added access to Hider settings. Using idisplay with the raytrace hider allows progressive rendering.
+
+Fixes:
+* Updated geometry export to work with new the 'bmesh' mesh data structure. Ngons are exported natively.
+* Updated for changes to blender python API
+
+
+v0.7.0 - 15/09/2011
+* Added pointcloud global illumination method
+  Auto-generates a pointcloud as a pre-pass, and adds a lightsource that reads and renders the stored colour information
+* Added toggle to enable/disable auto generation of shadow maps/point clouds
+
+Fixes:
+* Fixed optimising textures with an empty source path
+* Fixed reading primitive variables from modified meshes
+* Fixed reading shader parameters with 2 elements (eg float var[2] )
+* Fixed bad ordering of shader parameters
+* Fixed missing width parameter in particle hair
+* Fix for adding textures to lamp shaders
+* Ignore errors when scanning for shaders
+
+
+v0.6.5 - 23/08/2011
+* Fix for shadow maps generation on Windows
+* Fix for auto-converting image textures to 3dl format
+
+
+v0.6.4 - 20/08/2011
+* Fix for not finding 3delight library correctly on Linux (ubuntu)
+
+
+v0.6.3 - 11/08/2011
+* Fix for environment variables not being found when generating shader list
+
+
+v0.6.2 - 09/08/2011
+* Updated shader UI to dynamically generate a list of all shaders in shader paths to choose from. Also removed necessity to manually 'Initialise Shader Parameters'.
+See: http://vimeo.com/27460855
+
+Fixed bugs:
+* Bad syntax in subdivisionmesh export when using creases
+* Enum properties in shaders were being interpreted as the wrong type
+* Particle instances weren't working properly
+* Secondary GI panel was invisible
+* If native renderman geometry types aren't supported by the exporter, support exporting as a tessellated mesh representation for the time being.
+
+
+v0.6.0 - 05/07/2011
+Added functionality to:
+* Export geometry to RIB archives, either manually (file->export) or at render time
+* Export animated and/or motion blurred geometry to RIB archives/sequences
+* Render objects as procedural geometry - standard and delayed load RIB archives (static or animated sequences), procedural run program, or dynamic load DSO
+* Instance objects on particles (using particle location, rotation and size), full transformation and deformation motion blur is supported
+* Export primitive variables from meshes:
+ - mesh vertex colors as 'color' primvars
+ - mesh vertex groups as 'float' primvars
+ - mesh UVs as 'float[2]' primvars
+ - default UV and vertex colour sets, vertex normals built in
+* Export primitive variables from particles:
+ - particle properties, eg. velocity, angular velocity, age, lifetime...
+ - default 'size' built in
+* Export motion blurred blender fluid
+* Export blender curve objects as renderman curve primitives (animation not supported yet due to limitations in blender API), or as tessellated mesh/subdivision mesh primitives
+
+* General optimisations and cleanups
+
+
+v0.54b - 10/05/2011
+Fixes:
+* Fix problems with malformed paths on Windows
+
+
+v0.54 - 05/05/2011
+Fixes:
+* Updated to be compatible with Blender 2.57 release bpy API
+* Added manual shader initialisation to work around new limitations in bpy API
+* Attempted fixes for windows texture path troubles
+
+New features:
+* Motion blurred dynamic hair support
+
+New features contributed by Magnus Löfgren:
+* Support for deep shadow maps (Transparent Shadows), on by default
+* Trace Motion Blur parameter now accessible, allowing motion blurred shadows
+
+
+v0.52 - 03/03/2011
+* Updated to work with recent Python API property registration changes. Contributed by Jeff Doyle - thanks!
+
+
+v0.51 - 09/02/2011
+* Fixes for path handling on Windows
+* Fixes for environment variable handling, addition of 3delight_env.txt
+
+
+v0.5 - 07/02/2011
+* Initial release

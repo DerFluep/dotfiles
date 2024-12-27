@@ -1,0 +1,6 @@
+amd_undervolt
+amd_undervolt.service
+config.toml
+pkglist.txt
+pkg_desktop.txt
+sdboot-manage.conf

@@ -1,0 +1,13 @@
+[Unit]
+Description=Set a -100mV undervolt for the GPU
+After=multi-user.target rc-local.service systemd-user-sessions.service
+Wants=modprobe@amdgpu.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/amd_undervolt
+ExecReload=/usr/local/bin/amd_undervolt
+
+[Install]
+WantedBy=multi-user.target

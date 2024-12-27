@@ -1,0 +1,11 @@
+amd-ucode
+easyeffects
+gamescope
+linux-cachyos-lts
+linux-cachyos-lts-headers
+lsp-plugins
+mangohud
+openrgb
+proton-cachyos
+steam
+zenpower3-dkms
