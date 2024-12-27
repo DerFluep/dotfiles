@@ -10,12 +10,23 @@ monitor=DP-2,3840x2160@60,0x0,1.5
 monitor=DP-1,2560x1440@170,2560x0,1,vrr,2
 monitor=HDMI-A-1,disable
 
-workspace = 1, monitor:DP-1
-workspace = 2, monitor:DP-1
-workspace = 3, monitor:DP-1
-
-workspace = 4, monitor:DP-2
-workspace = 5, monitor:DP-2
-workspace = 6, monitor:DP-2
-workspace = 7, monitor:HDMI-A-1
+workspace = 1, monitor:DP-1, persistent:true
+workspace = 2, monitor:DP-1, persistent:true
+workspace = 3, monitor:DP-1, persistent:true
+workspace = 4, monitor:DP-1, persistent:true
+workspace = 5, monitor:DP-2, persistent:true
+workspace = 6, monitor:DP-2, persistent:true
+workspace = 7, monitor:DP-2, persistent:true
+workspace = 8, monitor:DP-2, persistent:true
+workspace = 9, monitor:HDMI-A-1
+{{- else }}
+workspace = 1, persistent:true
+workspace = 2, persistent:true
+workspace = 3, persistent:true
+workspace = 4, persistent:true
+workspace = 5, persistent:true
+workspace = 6, persistent:true
+workspace = 7, persistent:true
+workspace = 8, persistent:true
+workspace = 9, persistent:true
 {{- end}}
