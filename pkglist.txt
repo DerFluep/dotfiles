@@ -18,6 +18,7 @@ ffmpeg
 file
 fzf
 git
+github-cli
 greetd
 greetd-tuigreet
 grim
