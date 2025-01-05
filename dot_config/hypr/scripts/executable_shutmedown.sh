@@ -10,5 +10,6 @@ then
       shutdown 22:15
       break
     fi
+  sleep 59s
   done
 fi
