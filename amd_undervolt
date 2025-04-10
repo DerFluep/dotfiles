@@ -2,6 +2,6 @@
 
 echo "manual" >/sys/class/drm/card*/device/power_dpm_force_performance_level
 echo "vo -100" >/sys/class/drm/card*/device/pp_od_clk_voltage
-echo "5" >/sys/class/drm/card*/device/pp_power_profile_mode
+echo "1" >/sys/class/drm/card*/device/pp_power_profile_mode
 
 echo "312000000" >/sys/class/drm/card*/device/hwmon/hwmon*/power1_cap
