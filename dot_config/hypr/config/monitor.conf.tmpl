@@ -7,8 +7,9 @@
 monitor=,preferred,auto,1
 {{- if eq .chezmoi.hostname "jp-pc" }}
 monitor=DP-2,3840x2160@60,0x0,1.5
-monitor=DP-1,2560x1440@170,2560x0,1,vrr,2
+monitor=DP-1,2560x1440@170,2560x0,1,vrr,2,bitdepth,10,cm,edid
 monitor=HDMI-A-1,disable
+# monitor=HDMI-A-1,3840x2160@23.98,5120x0,1,bitdepth,10
 
 workspace = 1, monitor:DP-1, persistent:true
 workspace = 2, monitor:DP-1, persistent:true

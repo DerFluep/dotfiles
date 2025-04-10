@@ -101,6 +101,7 @@ bindm = $mainMod, mouse:273, resizewindow
 
 # Media buttons
 bind = ,XF86AudioPlay, exec, playerctl play-pause
+bind = SHIFT, XF86AudioPlay, exec, playerctl next
 bind = ,XF86AudioNext, exec, playerctl next
 bind = ,XF86AudioPrev, exec, playerctl previous
 
@@ -108,8 +109,10 @@ bind = ,XF86AudioPrev, exec, playerctl previous
 bind=SUPER+SHIFT,e,submap,(S)hutdown (R)eboot
 
 submap=(S)hutdown (R)eboot
-bind=,r,exec,~/.config/hypr/scripts/reboot.sh
-bind=,s,exec,~/.config/hypr/scripts/poweroff.sh
+# bind=,r,exec,~/.config/hypr/scripts/reboot.sh
+# bind=,s,exec,~/.config/hypr/scripts/poweroff.sh
+bind=,r,exec,shutdown now
+bind=,s,exec,shutdown -r now
 bind=,escape,submap,reset
 bind=,return,submap,reset
 submap=reset
