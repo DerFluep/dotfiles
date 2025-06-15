@@ -1,2 +1,0 @@
-ssh-keygen
-ssh-copy-id user@ip-adress
