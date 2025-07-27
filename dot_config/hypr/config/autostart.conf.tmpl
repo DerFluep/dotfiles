@@ -1,0 +1,23 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃                    Autostart Configuration                  ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+source = ~/.config/hypr/config/defaults.conf
+
+# Autostart wiki https://wiki.hyprland.org/0.45.0/Configuring/Keywords/#executing #
+exec-once = mako
+exec-once = systemctl --user start hyprpolkitagent
+exec-once = udiskie
+exec-once = waybar
+exec-once = wl-paste --type text --watch cliphist store # Stores only text data
+exec-once = wl-paste --type image --watch cliphist store # Stores only image data
+exec-once = ~/.config/hypr/scripts/shutmedown.sh
+{{ if .pc }}
+exec-once = easyeffects --gapplication-service
+exec-once = openrgb --startminimized --profile "blue"
+{{ end }}
+
+# ## Slow app launch fix
+exec-once = systemctl --user import-environment
+exec-once = hash dbus-update-activation-environment 2>/dev/null
+exec-once = dbus-update-activation-environment --systemd

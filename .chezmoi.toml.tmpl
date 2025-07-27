@@ -1,0 +1,14 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $isPC := promptBoolOnce . "isPC" "Is this your PC" -}}
+
+encryption = "age"
+[age]
+identity = "~/age-key.txt"
+recipient = "age1xuqq9yhtcxqtympw5n8gh6a7pscuzvsvpmfen7mdnt2et43vqsvs80vxle"
+
+[diff]
+pager = "delta"
+
+[data]
+pc = {{ $isPC }}
+

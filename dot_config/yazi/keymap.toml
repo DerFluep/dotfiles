@@ -1,0 +1,16 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "i" ]
+run  = "plugin lazygit"
+desc = "run lazygit"
+
+[[mgr.prepend_keymap]]
+on   = [ "<C-n>" ]
+run  = '''shell 'ripdrag "$@" -x 2>/dev/null &' --confirm'''
+
+[[mgr.prepend_keymap]]
+on  = "y"
+run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]

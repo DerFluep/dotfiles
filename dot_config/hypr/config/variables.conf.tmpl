@@ -1,0 +1,77 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃                    Variables Configuration                  ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+source = ~/.config/hypr/config/catppuccin-mocha.conf
+
+# Variables wiki https://wiki.hyprland.org/0.45.0/Configuring/Variables/ #
+# https://wiki.hyprland.org/0.45.0/Configuring/Variables/#general
+general {
+{{ if .pc }}
+    gaps_in = 5
+    gaps_out = 10
+{{ else }}
+    gaps_in = 3
+    gaps_out = 6
+{{ end }}
+    border_size = 2
+    col.active_border=$lavender
+    col.inactive_border=$overlay0
+    layout = dwindle
+
+    snap {
+    	enabled = true
+    }
+}
+
+# https://wiki.hyprland.org/0.45.0/Configuring/Variables/#gestures
+gestures {
+    workspace_swipe = off
+}
+
+# https://wiki.hyprland.org/0.45.0/Configuring/Variables/#group
+group {
+	col.border_active = $lavender
+	col.border_inactive = $overlay0
+	col.border_locked_active = $lavender
+	col.border_locked_inactive = $overlay0
+
+    # https://wiki.hyprland.org/0.45.0/Configuring/Variables/#groupbar
+	groupbar {
+		text_color = $text
+		col.active = $lavender
+		col.inactive = $overlay0
+		col.locked_active = $lavender
+		col.locked_inactive = $overlay0
+	}
+}
+
+# See https://wiki.hyprland.org/0.45.0/Configuring/Dwindle-Layout/ for more
+dwindle {
+    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = true # you probably want this
+}
+
+# See https://wiki.hyprland.org/0.45.0/Configuring/Master-Layout/ for more
+master {
+    new_on_active = before
+}
+
+misc {
+  force_default_wallpaper = 0
+  disable_hyprland_logo = false
+  disable_splash_rendering = true
+  font_family = JetBrainsMono Nerd Font
+}
+
+# https://wiki.hyprland.org/0.45.0/Configuring/Variables/#render
+render {
+	cm_auto_hdr = 1
+	cm_fs_passthrough = 0
+	cm_enabled = true
+}
+
+debug {
+	full_cm_proto = true
+}
+

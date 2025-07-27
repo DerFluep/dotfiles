@@ -1,0 +1,79 @@
+## Viking
+A = front not great
+B = dumpf rear?
+C = same?!
+D = little high
+E = little tilted
+F = trhough head, little high
+G = far behind
+H = only behind..
+I = through head
+J = through head
+K = kinda ok? front too near
+L = good!
+M = front is over head
+N = übergang side to front little weird
+O = same as n
+P = liiiiitle bit tilted
+Q = Tilted
+R = ok
+S = over head
+T = nope, only back
+
+## Widespread
+1 = nope
+2 = nah, kinda weird
+3 = back overhead
+4 = meh
+5 = only back
+6 =
+7 = mostly back
+8 = 
+9 = shifted to back
+10 = only back
+11 = meh
+12 =
+13 = tilted
+14 = good, little to back
+15 = mostly back
+16 = nah, not really
+20 = tilted
+21 = tilted, muffeld
+22 = quiet good! little tilted      - candidate
+23 = trough head
+24 = tilted
+25 = over head
+26 = little tlted
+27 = tilted
+29 = qiet good! ähnlich zu 22
+30 = tilted
+31 = tilted
+32 = tilted
+33 = only back
+36 = no
+38 = little tilted
+39 = little overhead
+42 = really good!                   - candidate
+43 = little overhead
+44 = ovverhead
+45 = good! little tilted
+48 = tilted
+
+100 = good!                         - candidate
+210 = good!                         - candidate
+275 = good!                         - candidate
+345 = good! liiiittle muddy         - candidate
+528 = really good!                         - candidate
+530 = even better
+
+
+## candidates
+22 = nah
+29 = nah
+42 = nah
+100 = good! liiiiittle muddy
+210 = good!                         - candidate
+275 = good!                         - candidate
+345 = good! liiiittle muddy         - candidate
+528 = really good!                         - candidate   WINNER
+530 = even better

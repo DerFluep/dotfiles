@@ -1,0 +1,49 @@
+#!/bin/bash
+
+echo ""
+read -p "Run the bootstrap script?(y/n) " run
+if [[ "$run" == y ]]; then
+  # Install base packages
+  readarray -t pkgarray < ~/.local/share/chezmoi/bootstrap/pkglist.txt
+	pkgstring=$(printf '%s ' "${pkgarray[@]}")
+	paru -S --needed $pkgstring
+	echo "Base packages installed!"
+
+	# Install additional PC packages
+  {{ if .pc }}
+	readarray -t pkgdskarray < ~/.local/share/chezmoi/bootstrap/pkg_desktop.txt
+	pkgdskstring=$(printf '%s ' "${pkgdskarray[@]}")
+	paru -S --needed $pkgdskstring
+	echo "Desktop packages installed!"
+  {{ end }}
+
+  # greetd auto login
+	sudo rm -f /etc/greetd/config.toml
+	sudo cp ~/.local/share/chezmoi/bootstrap/config.toml /etc/greetd/
+	sudo systemctl enable greetd.service
+	echo "greetd auto login setup!"
+
+	# add NAS to fstab
+	if ! grep -q 'NAS' /etc/fstab; then 
+  	sudo mkdir /mnt/nas
+  	sudo mkdir /mnt/nas/photos_shared
+  	sudo mkdir /mnt/nas/PlexMedia
+    echo "" | sudo tee -a /etc/fstab > /dev/null
+  	echo "# NAS" | sudo tee -a /etc/fstab > /dev/null
+  	echo "192.168.178.91:/volume1/homes/jp  /mnt/nas/               nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
+  	echo "192.168.178.91:/volume1/photo     /mnt/nas/photos_shared/ nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
+  	echo "192.168.178.91:/volume1/PlexMedia /mnt/nas/PlexMedia/     nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
+  	sudo mount -a
+  	sudo ln -s /mnt/nas/ ~/
+  	echo "Added NAS to fstab!"
+	fi
+	
+	# undervolt the GPU
+	{{ if .pc }}
+	echo "Pls open LACT and follow the instructions!"
+	echo "Tested values are 312w and -100mV"
+	echo ""
+	echo "Also change the ext-sched using the SCX Manager if wanted"
+	{{ end }}
+fi
+

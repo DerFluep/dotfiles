@@ -1,0 +1,104 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 30,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "hyprland/window",
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "network",
+        "cpu",
+        "temperature",
+        "memory",
+        "tray",
+    ],
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "clock": {
+        "interval": 30,
+        "format": "{:%e %b %H:%M}", // Icon: calendar-alt
+        "tooltip": true,
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "󰍛 {usage}%", // Icon: microchip
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": "  {used}", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "network": {
+        "interval": 30,
+        "format-wifi": " {essid} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": "󰈀", // Icon: ethernet
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+          "active": "",
+          "default": "",
+        },
+        {{ if .pc }}
+        "persistent-workspaces": {
+          "DP-1": [1, 2, 3, 4],
+          "DP-2": [5, 6, 7, 8]
+        }
+        {{ else }}
+        "persistent-workspaces": {
+            "*": 6
+        }
+        {{ end}}
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+    },
+
+    "temperature": {
+      "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
+      "interval": 1,
+      "format": " {temperatureC}°C"
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 5
+    }
+}

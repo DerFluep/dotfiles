@@ -1,0 +1,8 @@
+amd-ucode
+easyeffects
+gamescope
+lact
+lsp-plugins
+mangohud
+openrgb
+zenpower3-dkms

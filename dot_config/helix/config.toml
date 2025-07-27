@@ -1,0 +1,17 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+right = ["diagnostics", "selections", "position-percentage", "position", "file-encoding", "file-line-ending", "file-type"]
+
+[editor.indent-guides]
+render = true
+character = "╎"
+

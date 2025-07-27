@@ -1,0 +1,5 @@
+[[language]]
+name = "json"
+file-types = ["conf"]
+comment-tokens = "#"
+indent = { tab-width = 2, unit = "  " }

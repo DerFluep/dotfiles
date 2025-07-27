@@ -1,0 +1,209 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* import css definitions for current theme */
+/*@import url("theme.css");*/
+@import "mocha.css";
+
+@define-color transparent_background_color rgba(0, 0, 0, 0.5);
+@define-color background_color #ffffff;
+@define-color bright_text_color #ffffff;
+@define-color dim_text_color #d6d6d6;
+@define-color text_color #eeeeee;
+/*@define-color accent_color #606060;*/
+@define-color accent_color #eeeeee;
+@define-color alternative_color #55b5db;
+@define-color warning_color #db7b55;
+@define-color error_color #Cd3f45;
+
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+    70% {
+        color: @text_color;
+    }
+
+    to {
+        color: @text_color;
+        background-color: @warning_color;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @text_color;
+    }
+
+    to {
+        color: @text_color;
+        background-color: @error_color;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    /*font-family: "FontAwesome 5 Free Solid", "TerminessTTF Nerd Font", sans-serif;*/
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    color: @text;
+}
+
+/* The whole bar */
+#waybar {
+    background: @base;
+    color: @text;
+}
+
+/* Each module */
+#bluetooth,
+#clock,
+#cpu,
+#memory,
+#network,
+#temperature,
+#idle_inhibitor,
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#clock {
+    font-weight: bold;
+    border-bottom: 4px;
+    border-color: @lavender;
+    border-style: solid;
+    /*background-color: @accent_color;*/
+}
+
+#cpu {
+  /* No styles */
+}
+
+#cpu.warning {
+    color: @yellow;
+}
+
+#cpu.critical {
+    color: @red;
+}
+
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+    color: @yellow;
+}
+
+#memory.critical {
+    color: @red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#network {
+    /* No styles */
+}
+
+#network.disconnected {
+    color: @warning_color;
+}
+
+#temperature {
+    /* No styles */
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#tray {
+    /* No styles */
+}
+
+#window {
+    font-weight: bold;
+    margin-right: 25px;
+    margin-left: 25px;
+    color: @text;
+}
+
+#workspaces button {
+    border-top: 2px solid transparent;
+    border-bottom: 4px solid transparent;
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @text;
+}
+
+#workspaces button.focused {
+    border-color: @lavender;
+    color: @text;
+    background-color: @accent_color;
+}
+
+#workspaces button.visible{
+    border-bottom: 4px solid @lavender;
+    color: @text;
+}
+
+#workspaces button.active {
+    border-bottom: 4px solid @lavender;
+    color: @text;
+}
+
+#workspaces button.persistent{
+    border-bottom: 4px solid @lavender;
+    color: @text;
+}
+
+#workspaces button.empty{
+    border-top: 2px solid transparent;
+    border-bottom: 4px solid transparent;
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @text;
+}
+
+
+#workspaces button.urgent {
+    border-color: @red;
+    color: @red;
+}
+
+#bluetooth.disabled {
+    color: @red;
+}
+
+#submap {
+    color: @red;
+}
