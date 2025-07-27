@@ -11,6 +11,7 @@ compsize
 dust
 fd
 file
+fish
 ffmpeg
 ffmpeg-normalize
 fzf
