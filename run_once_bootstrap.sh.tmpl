@@ -26,7 +26,7 @@ if [[ "$run" == y ]]; then
 	# set fish as default shell
 	if ! grep -q 'fish' /etc/shells; then 
   	echo /usr/bin/fish | sudo tee -a /etc/shells
-    chsh -s /usr/bin/fish
+    sudo chsh -s /usr/bin/fish
   fi
 
 	# add NAS to fstab
