@@ -13,7 +13,6 @@ fd
 file
 fish
 ffmpeg
-ffmpeg-normalize
 fzf
 git
 github-cli

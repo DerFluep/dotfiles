@@ -1,5 +1,6 @@
 amd-ucode
 easyeffects
+ffmpeg-normalize
 gamescope
 lact
 lsp-plugins
