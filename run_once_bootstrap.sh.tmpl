@@ -23,12 +23,6 @@ if [[ "$run" == y ]]; then
 	sudo systemctl enable greetd.service
 	echo "greetd auto login setup!"
 
-	# set fish as default shell
-	if ! grep -q 'fish' /etc/shells; then 
-  	echo /usr/bin/fish | sudo tee -a /etc/shells
-    sudo chsh -s /usr/bin/fish
-  fi
-
 	# add NAS to fstab
 	if ! grep -q 'NAS' /etc/fstab; then 
   	sudo mkdir /mnt/nas
