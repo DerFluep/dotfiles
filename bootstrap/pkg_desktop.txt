@@ -2,8 +2,9 @@ amd-ucode
 easyeffects
 ffmpeg-normalize
 gamescope
+hip-runtime-amd
 lact
-lsp-plugins
+lsp-plugins-lv2
 mangohud
 openrgb
 zenpower3-dkms

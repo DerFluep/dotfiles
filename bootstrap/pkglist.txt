@@ -8,7 +8,7 @@ btrfs-progs
 catppuccin-gtk-theme-mocha
 cliphist
 compsize
-dust
+dragon-drop
 fd
 file
 fish
@@ -37,8 +37,8 @@ mako
 man-db
 mediainfo
 mesa
-mold
 mpv
+ncdu
 nfs-utils
 noto-fonts-emoji
 nwg-look
@@ -52,7 +52,6 @@ qt6-wayland
 qt5ct
 qt6ct
 reflector
-ripdrag-git
 ripgrep
 slurp
 ttf-jetbrains-mono-nerd
