@@ -3,13 +3,14 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "i" ]
-run  = "plugin lazygit"
-desc = "run lazygit"
+on = "!"
+for = "unix"
+run = 'shell "$SHELL" --block'
+dec = "Open $SHELL here"
 
 [[mgr.prepend_keymap]]
 on   = [ "<C-n>" ]
-run  = '''shell 'ripdrag "$@" -x 2>/dev/null &' --confirm'''
+run  = 'shell -- dragon-drop -x -i -T "$1"'
 
 [[mgr.prepend_keymap]]
 on  = "y"
