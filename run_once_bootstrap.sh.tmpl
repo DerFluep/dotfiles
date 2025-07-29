@@ -33,7 +33,6 @@ if [[ "$run" == y ]]; then
   	echo "192.168.178.91:/volume1/homes/jp  /mnt/nas/               nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
   	echo "192.168.178.91:/volume1/photo     /mnt/nas/photos_shared/ nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
   	echo "192.168.178.91:/volume1/PlexMedia /mnt/nas/PlexMedia/     nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
-  	sudo mount -a
   	sudo ln -s /mnt/nas/ ~/
   	echo "Added NAS to fstab!"
 	fi
