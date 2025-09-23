@@ -14,9 +14,9 @@ general {
     gaps_in = 3
     gaps_out = 6
 {{ end }}
-    border_size = 2
-    col.active_border=$lavender
-    col.inactive_border=$overlay0
+    border_size = 1
+    col.active_border=rgba(98971aff) rgba(98971aff) 0deg
+    col.inactive_border=rgba(928374ff) rgba(928374ff) 0deg
     layout = dwindle
 
     snap {
@@ -24,25 +24,20 @@ general {
     }
 }
 
-# https://wiki.hyprland.org/0.45.0/Configuring/Variables/#gestures
-gestures {
-    workspace_swipe = off
-}
-
 # https://wiki.hyprland.org/0.45.0/Configuring/Variables/#group
 group {
-	col.border_active = $lavender
-	col.border_inactive = $overlay0
-	col.border_locked_active = $lavender
-	col.border_locked_inactive = $overlay0
+	col.border_active = $green
+	col.border_inactive = $grey
+	col.border_locked_active = $green
+	col.border_locked_inactive = $grey
 
     # https://wiki.hyprland.org/0.45.0/Configuring/Variables/#groupbar
 	groupbar {
-		text_color = $text
-		col.active = $lavender
-		col.inactive = $overlay0
-		col.locked_active = $lavender
-		col.locked_inactive = $overlay0
+		text_color = $fg1
+		col.active = $green
+		col.inactive = $grey
+		col.locked_active = $green
+		col.locked_inactive = $grey
 	}
 }
 
@@ -58,7 +53,6 @@ master {
 }
 
 misc {
-  force_default_wallpaper = 0
   disable_hyprland_logo = false
   disable_splash_rendering = true
   font_family = JetBrainsMono Nerd Font
@@ -67,7 +61,7 @@ misc {
 # https://wiki.hyprland.org/0.45.0/Configuring/Variables/#render
 render {
 	cm_auto_hdr = 1
-	cm_fs_passthrough = 0
+	cm_fs_passthrough = 2
 	cm_enabled = true
 }
 

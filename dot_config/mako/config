@@ -2,7 +2,7 @@ font=JetBrainsMono 12
 layer=overlay
 width=1000
 height=300
-border-size=2
+border-size=1
 border-radius=5
 max-icon-size=128
 icon-path=/usr/share/icons/kora/
@@ -10,11 +10,11 @@ default-timeout=7000
 ignore-timeout=1
 anchor=top-center
 
-background-color=#1e1e2e
-text-color=#cdd6f4
-border-color=#89b4fa
-progress-color=over #313244
+background-color=#1d2021
+text-color=#ebdbb2
+border-color=#98971a
+progress-color=over #689d6a
 
 [urgency=high]
-border-color=#fab387
+border-color=#cc241d
 default-timeout=0

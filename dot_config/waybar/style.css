@@ -8,7 +8,8 @@
 
 /* import css definitions for current theme */
 /*@import url("theme.css");*/
-@import "mocha.css";
+/* @import "mocha.css"; */
+@import "gruvbox.css";
 
 @define-color transparent_background_color rgba(0, 0, 0, 0.5);
 @define-color background_color #ffffff;
@@ -63,13 +64,13 @@
     /*font-family: "FontAwesome 5 Free Solid", "TerminessTTF Nerd Font", sans-serif;*/
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;
-    color: @text;
+    color: @fg1;
 }
 
 /* The whole bar */
 #waybar {
-    background: @base;
-    color: @text;
+    background: @bg0_h;
+    color: @fg1;
 }
 
 /* Each module */
@@ -92,8 +93,8 @@
 
 #clock {
     font-weight: bold;
-    border-bottom: 4px;
-    border-color: @lavender;
+    border-bottom: 2px;
+    border-color: @green;
     border-style: solid;
     /*background-color: @accent_color;*/
 }
@@ -131,7 +132,7 @@
 }
 
 #network.disconnected {
-    color: @warning_color;
+    color: @yellow;
 }
 
 #temperature {
@@ -150,7 +151,7 @@
     font-weight: bold;
     margin-right: 25px;
     margin-left: 25px;
-    color: @text;
+    color: @fg1;
 }
 
 #workspaces button {
@@ -160,28 +161,28 @@
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @text;
+    color: @fg1;
 }
 
 #workspaces button.focused {
-    border-color: @lavender;
-    color: @text;
+    border-color: @green;
+    color: @fg1;
     background-color: @accent_color;
 }
 
 #workspaces button.visible{
-    border-bottom: 4px solid @lavender;
-    color: @text;
+    border-bottom: 2px solid @green;
+    color: @fg1;
 }
 
 #workspaces button.active {
-    border-bottom: 4px solid @lavender;
-    color: @text;
+    border-bottom: 2px solid @green;
+    color: @fg1;
 }
 
 #workspaces button.persistent{
-    border-bottom: 4px solid @lavender;
-    color: @text;
+    border-bottom: 2px solid @green;
+    color: @fg1;
 }
 
 #workspaces button.empty{
@@ -191,7 +192,7 @@
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @text;
+    color: @fg1;
 }
 
 
