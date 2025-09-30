@@ -23,6 +23,12 @@ if [[ "$run" == y ]]; then
 	sudo systemctl enable greetd.service
 	echo "greetd auto login setup!"
 
+	# cachy-update config
+	sudo rm -f /etc/pacman.conf
+	sudo cp ~/.local/share/chezmoi/bootstrap/pacman.conf /etc/pacman.conf
+  systemctl --user enable --now arch-update.timer
+	echo "pacman config updated!"
+
 	# add NAS to fstab
 	if ! grep -q 'NAS' /etc/fstab; then 
   	sudo mkdir /mnt/nas
