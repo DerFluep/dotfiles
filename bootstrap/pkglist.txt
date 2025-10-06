@@ -10,6 +10,12 @@ catppuccin-gtk-theme-mocha
 cliphist
 compsize
 dragon-drop
+elephant
+elephant-calc
+elephant-clipboard
+elephant-desktopapplications
+elephant-providerlist
+elephant-todo
 fd
 file
 fish
@@ -60,7 +66,7 @@ ttf-jetbrains-mono-nerd
 udiskie
 util-linux
 vulkan-radeon
-walker-bin
+walker
 waybar
 wireplumber
 wl-clipboard
