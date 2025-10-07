@@ -31,6 +31,7 @@ hyprland
 hyprpaper
 hyprpolkitagent
 imagemagick
+imv
 kitty
 kora-icon-theme
 kvantum
@@ -74,7 +75,6 @@ xdg-desktop-portal-hyprland
 xdg-terminal-exec
 xdg-user-dirs
 xdg-utils
-xnviewmp
 yazi
 zen-browser-bin
 zram-generator
