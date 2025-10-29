@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-folder=$HOME/notes/
+folder=$HOME/Notes/
 
 newnote () { \
   dir="$(command ls -d "$folder" "$folder"*/ | fuzzel -d -l 5 -i -p 'Choose directory: ')"|| exit 0
