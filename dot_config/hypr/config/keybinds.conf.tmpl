@@ -95,6 +95,11 @@ bind = $mainMod, mouse_up, workspace, e-1
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
+bind = $mainMod SHIFT, right, resizeactive, 50 0
+bind = $mainMod SHIFT, left, resizeactive, -50 0
+bind = $mainMod SHIFT, up, resizeactive, 0 -50
+bind = $mainMod SHIFT, down, resizeactive, 0 50
+
 # Media buttons
 bind = ,XF86AudioPlay, exec, playerctl play-pause
 bind = SHIFT, XF86AudioPlay, exec, playerctl next
