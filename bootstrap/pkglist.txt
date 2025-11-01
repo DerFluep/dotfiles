@@ -42,6 +42,7 @@ mpv
 ncdu
 nfs-utils
 noto-fonts-emoji
+neovim
 nwg-look
 openssh
 pacman-contrib
