@@ -13,6 +13,7 @@ fd
 file
 fish
 ffmpeg
+ffmpegthumbnailer
 fuzzel
 fzf
 git
@@ -20,7 +21,6 @@ github-cli
 greetd
 greetd-tuigreet
 grim
-helix
 hyprland
 hyprpaper
 hyprpolkitagent
@@ -60,6 +60,7 @@ swayimg
 ttf-jetbrains-mono-nerd
 udiskie
 util-linux
+vivaldi
 vulkan-radeon
 waybar
 wireplumber
@@ -69,6 +70,5 @@ xdg-terminal-exec
 xdg-user-dirs
 xdg-utils
 yazi
-zen-browser-bin
 zram-generator
 zoxide
