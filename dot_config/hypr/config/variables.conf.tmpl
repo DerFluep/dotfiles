@@ -17,10 +17,17 @@ general {
     border_size = 1
     col.active_border=rgba(98971aff) rgba(98971aff) 0deg
     col.inactive_border=rgba(928374ff) rgba(928374ff) 0deg
-    layout = dwindle
+    layout = scrolling
 
     snap {
     	enabled = true
+    }
+}
+
+plugin {
+    hyprscrolling {
+      fullscreen_on_one_column = true
+      focus_fit_method = 1
     }
 }
 
@@ -56,6 +63,10 @@ misc {
   disable_hyprland_logo = true
   disable_splash_rendering = true
   font_family = JetBrainsMono Nerd Font
+}
+
+binds {
+  allow_workspace_cycles = true
 }
 
 decoration {
