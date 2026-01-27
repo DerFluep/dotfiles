@@ -26,6 +26,7 @@ general {
 
 plugin {
     hyprscrolling {
+      column_width = 0.667
       fullscreen_on_one_column = true
       focus_fit_method = 1
     }
@@ -71,14 +72,15 @@ binds {
 
 decoration {
 	blur {
-		enabled = false
+		enabled = true
+    passes = 2
 	}
 }
 
 # https://wiki.hyprland.org/0.45.0/Configuring/Variables/#render
 render {
 	cm_auto_hdr = 0
-	cm_fs_passthrough = 0
+	# cm_fs_passthrough = 0
 	cm_enabled = true
 }
 

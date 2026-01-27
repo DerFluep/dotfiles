@@ -7,7 +7,7 @@ recipient = "age1xuqq9yhtcxqtympw5n8gh6a7pscuzvsvpmfen7mdnt2et43vqsvs80vxle"
 
 [diff]
 command = "nvim"
-args = ["-d", "{{ .Destination }}", "{{ .Target }}"]
+args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
 
 [data]
 pc = {{ $isPC }}
