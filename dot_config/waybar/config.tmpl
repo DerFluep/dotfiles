@@ -18,8 +18,10 @@
 
     "modules-left": [
         "hyprland/workspaces",
+        "niri/workspaces",
         "hyprland/submap",
         "hyprland/window",
+        "niri/window",
     ],
     "modules-center": [
         "clock"
@@ -69,6 +71,14 @@
         "tooltip-format": "{ifname}: {ipaddr}"
     },
 
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+          "active": "",
+          "default": "",
+        },
+    }
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -85,6 +95,10 @@
             "*": 6
         }
         {{ end}}
+    },
+
+    "niri/window": {
+        "format": "{}",
     },
 
     "hyprland/window": {
