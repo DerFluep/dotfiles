@@ -19,9 +19,9 @@ bind = $mainMod SHIFT, S, togglesplit,
 bind = $mainMod, F, Fullscreen
 bind = Ctrl+Alt_L, Delete, exec, $monitoring
 bind = $mainMod, home, exec, makoctl restore
-bind = $mainMod, N, exec, ~/.config/hypr/scripts/notes.sh
-bind = $mainMod, EQUAL, exec, ~/.config/hypr/scripts/=.sh
-bind = $mainMod, B, exec, ~/.config/hypr/scripts/bookmarks.sh
+bind = $mainMod, N, exec, ~/scripts/notes.sh
+bind = $mainMod, EQUAL, exec, ~/Scripts/=.sh
+bind = $mainMod, B, exec, ~/Scripts/bookmarks.sh
 
 {{ if .pc }}
 # Switch modes for the TV
@@ -36,8 +36,8 @@ bind = $mainMod, slash, togglespecialworkspace
 bindd = $mainMod, F1, Call special workspace scratchpad, togglespecialworkspace, scratchpad
 
 # ======= Screenshots =======
-bind = ,Print, exec, ~/.config/hypr/scripts/hyprshot.sh -o ~/nas/Photos/Screenshots/ -m region
-bind = SHIFT, Print, exec, ~/.config/hypr/scripts/screenshot.sh
+bind = ,Print, exec, ~/Scripts/hyprshot.sh -o ~/nas/Photos/Screenshots/ -m region
+bind = SHIFT, Print, exec, ~/Scripts/screenshot.sh
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l

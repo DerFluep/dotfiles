@@ -164,11 +164,11 @@
     color: @fg1;
 }
 
-#workspaces button.focused {
-    border-color: @green;
-    color: @fg1;
-    background-color: @accent_color;
-}
+/* #workspaces button.focused { */
+/*     border-color: @green; */
+/*     color: @fg1; */
+/*     background-color: @accent_color; */
+/* } */
 
 #workspaces button.visible{
     border-bottom: 2px solid @green;

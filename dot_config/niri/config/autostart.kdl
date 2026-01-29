@@ -1,0 +1,12 @@
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+
+// This line starts waybar, a commonly used bar for Wayland compositors.
+spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
+spawn-at-startup "mako"
+spawn-at-startup "waybar"
+spawn-at-startup "hyprpaper"
+spawn-sh-at-startup "arch-update --tray"
+spawn-sh-at-startup "openrgb --startminimized --profile 'blue'"

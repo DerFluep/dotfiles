@@ -1,0 +1,15 @@
+output "DP-1" {
+  mode "2560x1440@170.001"
+  scale 1
+  transform "normal"
+  position x=0 y=0
+  focus-at-startup
+  variable-refresh-rate 
+}
+
+output "DP-2" {
+  mode "3840x2160@60.000"
+  scale 1.5
+  transform "normal"
+  position x=-2560 y=0
+}
