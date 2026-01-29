@@ -24,7 +24,8 @@
         "niri/window",
     ],
     "modules-center": [
-        "clock"
+        "clock",
+        "mpris",
     ],
     "modules-right": [
         "network",
@@ -122,5 +123,20 @@
     "tray": {
         "icon-size": 21,
         "spacing": 5
-    }
+    },
+
+    "mpris": {
+        "interval": 1,
+        "dynamic-len": 40,
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+          "default": "▶",
+          "mpv": "🎵"
+        },
+        "status-icons": {
+          "paused": "⏸"
+        },
+        // "ignored-players": ["firefox"]
+      },
 }
