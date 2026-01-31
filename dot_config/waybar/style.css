@@ -11,41 +11,29 @@
 /* @import "mocha.css"; */
 @import "gruvbox.css";
 
-@define-color transparent_background_color rgba(0, 0, 0, 0.5);
-@define-color background_color #ffffff;
-@define-color bright_text_color #ffffff;
-@define-color dim_text_color #d6d6d6;
-@define-color text_color #eeeeee;
-/*@define-color accent_color #606060;*/
-@define-color accent_color #eeeeee;
-@define-color alternative_color #55b5db;
-@define-color warning_color #db7b55;
-@define-color error_color #Cd3f45;
-
-
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
     70% {
-        color: @text_color;
+        color: @fg;
     }
 
     to {
-        color: @text_color;
-        background-color: @warning_color;
+        color: @fg;
+        background-color: @yellow;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: @text_color;
+      color: @fg;
     }
 
     to {
-        color: @text_color;
-        background-color: @error_color;
+        color: @fg;
+        background-color: @red;
     }
 }
 
@@ -64,13 +52,18 @@
     /*font-family: "FontAwesome 5 Free Solid", "TerminessTTF Nerd Font", sans-serif;*/
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;
-    color: @fg1;
+    color: @fg;
 }
 
 /* The whole bar */
 #waybar {
+    border-bottom: 1px solid @fg;
+    border-color: @gray2;
     background: @bg0_h;
-    color: @fg1;
+}
+
+#waybar label {
+  padding: 0 5px;
 }
 
 /* Each module */
@@ -96,11 +89,13 @@
     border-bottom: 2px;
     border-color: @green;
     border-style: solid;
-    /*background-color: @accent_color;*/
 }
 
 #cpu {
-  /* No styles */
+  border-left: 1px solid @gray2;
+  border-radius: 7px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #cpu.warning {
@@ -112,6 +107,10 @@
 }
 
 #memory {
+  border-left: 1px solid @gray2;
+  border-radius: 7px;
+  margin-left: 0;
+  margin-right: 0;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -128,7 +127,8 @@
 }
 
 #network {
-    /* No styles */
+  border-left: 1px solid @gray2;
+  border-radius: 7px;
 }
 
 #network.disconnected {
@@ -136,7 +136,10 @@
 }
 
 #temperature {
-    /* No styles */
+  border-left: 1px solid @gray2;
+  border-radius: 7px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #temperature.critical {
@@ -144,14 +147,18 @@
 }
 
 #tray {
-    /* No styles */
+  border-left: 1px solid @gray2;
+  border-radius: 7px;
 }
 
 #window {
     font-weight: bold;
-    margin-right: 25px;
-    margin-left: 25px;
-    color: @fg1;
+    color: @fg;
+}
+
+#workspaces {
+  border-right: 1px solid @gray2;
+  border-radius: 7px;
 }
 
 #workspaces button {
@@ -161,7 +168,7 @@
     padding-bottom: 2px;
     padding-left: 5px;
     padding-right: 5px;
-    color: @fg1;
+    color: @fg;
 }
 
 /* #workspaces button.focused { */
@@ -170,30 +177,30 @@
 /*     background-color: @accent_color; */
 /* } */
 
-#workspaces button.visible{
-    border-bottom: 2px solid @green;
-    color: @fg1;
-}
+/* #workspaces button.visible{ */
+/*     border-bottom: 2px solid @green; */
+/*     color: @fg; */
+/* } */
 
 #workspaces button.active {
     border-bottom: 2px solid @green;
-    color: @fg1;
+    color: @fg;
 }
 
-#workspaces button.persistent{
-    border-bottom: 2px solid @green;
-    color: @fg1;
-}
+/* #workspaces button.persistent{ */
+/*     border-bottom: 2px solid @green; */
+/*     color: @fg; */
+/* } */
 
-#workspaces button.empty{
-    border-top: 2px solid transparent;
-    border-bottom: 4px solid transparent;
+/* #workspaces button.empty{ */
+/*     border-top: 2px solid transparent; */
+/*     border-bottom: 4px solid transparent; */
     /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    color: @fg1;
-}
+/*     padding-bottom: 2px; */
+/*     padding-left: 5px; */
+/*     padding-right: 5px; */
+/*     color: @fg; */
+/* } */
 
 
 #workspaces button.urgent {

@@ -3,6 +3,7 @@
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
+    background-color "#282828"
     gaps 10
 
     // When to center a column when changing focus, options are:
