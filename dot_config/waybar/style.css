@@ -129,6 +129,7 @@
 #network {
   border-left: 1px solid @gray2;
   border-radius: 7px;
+  min-width: 20px;
 }
 
 #network.disconnected {
