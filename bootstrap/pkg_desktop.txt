@@ -5,4 +5,5 @@ hip-runtime-amd
 lact
 mangohud
 openrgb
+xdg-desktop-portal-gnome
 zenpower3-dkms

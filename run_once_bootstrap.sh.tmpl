@@ -37,12 +37,6 @@ if [[ "$run" == y ]]; then
   	echo "Added NAS to fstab!"
 	fi
 
-  # Hyprland scrolling layout
-  paru -S cpio cmake
-  hyprpm update
-  hyprpm add https://github.com/hyprwm/hyprland-plugins
-  hyprpm enable hyprscrolling
-	
 	# undervolt the GPU
 	{{ if .pc }}
 	echo "Pls open LACT and follow the instructions!"
