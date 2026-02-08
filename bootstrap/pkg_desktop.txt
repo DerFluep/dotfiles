@@ -1,9 +1,9 @@
 amd-ucode
-ffmpeg-normalize
 gamescope
 hip-runtime-amd
 lact
 mangohud
 openrgb
+opus-tools
 xdg-desktop-portal-gnome
 zenpower3-dkms

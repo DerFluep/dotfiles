@@ -10,8 +10,6 @@ environment {
   QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
   TERM "kitty"
   TERMINAL "kitty"
-  WINEDLLOVERRIDES "winepulse.drv=d"
-  WINEALSA_CHANNELS "8"
   XCURSOR_SIZE "28"
   XCURSOR_THEME "BreezeX-RoséPine"
   XDG_SESSION_TYPE "wayland"
