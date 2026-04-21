@@ -2,16 +2,19 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[[mgr.prepend_keymap]]
-on = "!"
-for = "unix"
-run = 'shell "$SHELL" --block'
-dec = "Open $SHELL here"
+# [[mgr.prepend_keymap]]
+# on = "!"
+# for = "unix"
+# run = 'shell "$SHELL" --block'
+# dec = "Open $SHELL here"
 
 [[mgr.prepend_keymap]]
-on   = [ "<C-n>" ]
-run  = 'shell -- dragon-drop -x -i -T "$1"'
+on = ["<C-n>"]
+run = 'shell -- dragon-drop -x -i -T "$1"'
 
 [[mgr.prepend_keymap]]
-on  = "y"
-run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
+on = "y"
+run = [
+  'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list',
+  "yank",
+]

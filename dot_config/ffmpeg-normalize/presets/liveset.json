@@ -1,0 +1,8 @@
+{
+  "normalization-type": "ebu",
+  "target-level": -14,
+  "true-peak": -1.0,
+  "audio-codec": "flac",
+  "progress": true,
+  "verbose": true
+}

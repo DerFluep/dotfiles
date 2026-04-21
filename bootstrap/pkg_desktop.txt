@@ -1,9 +1,13 @@
 amd-ucode
 gamescope
 hip-runtime-amd
+kid3-qt
 lact
+lug-helper
 mangohud
 openrgb
 opus-tools
-xdg-desktop-portal-gnome
+proton-cachyos-slr
+protonplus
+yt-dlp
 zenpower3-dkms

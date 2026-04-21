@@ -23,6 +23,18 @@ if [[ "$run" == y ]]; then
 	sudo systemctl enable greetd.service
 	echo "greetd auto login setup!"
 
+  # Always use the local AdGuard DNS server
+  sudo mkdir /etc/systemd/resolved.conf.d
+  sudo cp /etc/resolv.conf /etc/resolv.conf.bak
+  {{ if .pc }}
+  sudo cp ~/.local/share/chezmoi/bootstrap/nofallback_pc.conf /etc/systemd/resolved.conf.d/nofallback.conf
+  sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+  {{ else }}
+  sudo cp ~/.local/share/chezmoi/bootstrap/nofallback_laptop.conf /etc/systemd/resolved.conf.d/nofallback.conf
+  sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+  {{ end }}
+  echo "No DNS fallback configured!"
+
 	# add NAS to fstab
 	if ! grep -q 'NAS' /etc/fstab; then 
   	sudo mkdir /mnt/nas
