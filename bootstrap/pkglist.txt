@@ -57,6 +57,7 @@ qt6-wayland
 reflector
 ripgrep
 slurp
+swaybg
 swayimg
 tealdeer
 ttf-jetbrains-mono-nerd
