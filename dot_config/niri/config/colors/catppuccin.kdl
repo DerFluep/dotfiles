@@ -1,0 +1,15 @@
+// catppuccin
+layout {
+    background-color "#1e1e2e"
+
+    focus-ring {
+        active-color "#b4befe"
+        inactive-color "#6c7086"
+    }
+
+    border {
+        active-color "#b4befe"
+        inactive-color "#6c7086"
+        urgent-color "#f9e2af"
+    }
+}

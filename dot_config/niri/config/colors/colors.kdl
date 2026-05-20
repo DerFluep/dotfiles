@@ -1,0 +1,15 @@
+// gruvbox
+layout {
+    background-color "#282828"
+
+    focus-ring {
+        active-color "#98971a"
+        inactive-color "#928374"
+    }
+
+    border {
+        active-color "#98971a"
+        inactive-color "#928374"
+        urgent-color "#cc241d"
+    }
+}
