@@ -4,7 +4,7 @@ output "DP-1" {
   transform "normal"
   position x=2560 y=0
   focus-at-startup
-  variable-refresh-rate 
+  variable-refresh-rate on-demand=true
 }
 
 output "DP-2" {
