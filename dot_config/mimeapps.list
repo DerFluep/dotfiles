@@ -36,6 +36,7 @@ application/pdf=vivaldi-stable.desktop
 x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/about=vivaldi-stable.desktop
 x-scheme-handler/unknown=vivaldi-stable.desktop
+x-scheme-handler/mailto=vivaldi-stable.desktop
 
 [Added Associations]
 x-scheme-handler/http=vivaldi-stable.desktop;

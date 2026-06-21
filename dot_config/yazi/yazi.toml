@@ -10,6 +10,7 @@ linemode       = "size"
 [opener]
 edit = [
 	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+  { run = 'sudoedit "$@"', desc = "sudoedit", block = true, for = "unix" },
 ]
 open = [
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
@@ -22,6 +23,5 @@ extract = [
 ]
 play = [
 	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-	{ run = 'easytag "$@"',            orphan = true, for = "unix" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
