@@ -14,6 +14,7 @@ window-rule {
 
 window-rule {
   match app-id="vivaldi-stable"
+  match app-id="zen"
   open-maximized true
 }
 
@@ -24,6 +25,7 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match title="^Picture in picture$"
+    match title="^Picture-in-Picture$"
     open-floating true
 }
 

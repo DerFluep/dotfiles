@@ -273,7 +273,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     // Mod+E { spawn-sh "kitty yazi"; }
-    Mod+W { spawn "vivaldi"; }
+    Mod+W { spawn "zen-browser"; }
     Mod+B { spawn-sh "~/Scripts/bookmarks.sh"; }
     Mod+N { spawn-sh "~/Scripts/notes.sh"; }
     Mod+Equal { spawn-sh "~/Scripts/=.sh"; }
