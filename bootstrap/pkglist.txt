@@ -76,5 +76,6 @@ xdg-user-dirs
 xdg-utils
 xwayland-satellite
 yazi
+zen-browser-bin
 zoxide
 zram-generator
