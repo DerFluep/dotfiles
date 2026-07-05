@@ -42,9 +42,9 @@ if [[ "$run" == y ]]; then
   	sudo mkdir /mnt/nas/PlexMedia
     echo "" | sudo tee -a /etc/fstab > /dev/null
   	echo "# NAS" | sudo tee -a /etc/fstab > /dev/null
-  	echo "192.168.178.91:/volume1/homes/jp  /mnt/nas/               nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
-  	echo "192.168.178.91:/volume1/photo     /mnt/nas/photos_shared/ nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
-  	echo "192.168.178.91:/volume1/PlexMedia /mnt/nas/PlexMedia/     nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
+  	echo "192.168.178.2:/volume1/homes/jp  /mnt/nas/               nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
+  	echo "192.168.178.2:/volume1/photo     /mnt/nas/photos_shared/ nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
+  	echo "192.168.178.2:/volume1/PlexMedia /mnt/nas/PlexMedia/     nfs defaults,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
   	sudo ln -s /mnt/nas/ ~/
   	echo "Added NAS to fstab!"
 	fi
