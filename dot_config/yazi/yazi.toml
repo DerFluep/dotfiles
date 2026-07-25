@@ -9,19 +9,15 @@ linemode       = "size"
 
 [opener]
 edit = [
-	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-  { run = 'sudoedit "$@"', desc = "sudoedit", block = true, for = "unix" },
-]
-open = [
-	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
-]
-reveal = [
-	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
-]
-extract = [
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+  { run = "${EDITOR:-vi} %s", desc = "$EDITOR",      for = "unix", block = true },
+  { run = 'sudoedit %s', desc = "sudoedit", block = true, for = "unix" },
 ]
 play = [
-	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+  { run = "xdg-open %s1",    desc = "Play", for = "linux", orphan = true },
+	{ run = 'mpv --force-window %s1', orphan = true, for = "unix" },
+  { run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
 ]
+
+[preview]
+wrap = "yes"
+image_filter = "lanczos3"

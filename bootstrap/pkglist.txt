@@ -9,7 +9,6 @@ cachy-update
 cachy-update
 cliphist
 compsize
-dragon-drop
 fd
 ffmpeg
 ffmpegthumbnailer
@@ -55,6 +54,7 @@ qt5-wayland
 qt6ct
 qt6-wayland
 reflector
+ripdrag
 ripgrep
 slurp
 swaybg

@@ -9,13 +9,15 @@
 # run = 'shell "$SHELL" --block'
 # dec = "Open $SHELL here"
 
-[[mgr.prepend_keymap]]
-on = ["<C-n>"]
-run = 'shell -- dragon-drop -x -i -T "$1"'
-
-[[mgr.prepend_keymap]]
-on = "y"
-run = [
-  'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list',
-  "yank",
+[mgr]
+prepend_keymap = [
+  {on = "<C-n>", run = 'shell -- ripdrag -x -A %s 2>/dev/null &'},
+  {on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file"},
+  {on = "y", run = [
+    "shell -- echo %s | xclip -i -selection clipboard -t text/uri-list", "yank"
+  ]},
+  {on = ["g", "/"], run = "cd /", desc = "Go root", for = "unix"},
+  {on = ["g", "m"], run = "cd /mnt/games/", desc = "Go games", for = "unix"},
+  {on = ["g", "s"], run = "cd /run/media/", desc = "Go USB", for = "unix"},
 ]
+
