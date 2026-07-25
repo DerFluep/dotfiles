@@ -4,7 +4,6 @@ include "config/layout.kdl"
 include "config/autostart.kdl"
 include "config/windowrules.kdl"
 include "config/keybindings.kdl"
-include "config/environment.kdl"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
