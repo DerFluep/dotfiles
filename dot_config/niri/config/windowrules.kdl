@@ -57,3 +57,11 @@ window-rule {
     geometry-corner-radius 5
     clip-to-geometry true
 }
+
+layer-rule {
+  match layer="top"
+  match layer="overlay"
+  background-effect {
+    blur true
+  }
+}
