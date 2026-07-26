@@ -1,0 +1,15 @@
+// tokyonight
+layout {
+    background-color "#1a1b26"
+
+    focus-ring {
+        active-color "#7aa2f7"
+        inactive-color "#3b4261"
+    }
+
+    border {
+        active-color "#7aa2f7"
+        inactive-color "#3b4261"
+        urgent-color "#db4b4b"
+    }
+}
