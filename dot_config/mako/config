@@ -12,5 +12,6 @@ default-timeout=7000
 ignore-timeout=1
 anchor=top-right
 markup=1
+margin=0
 outer-margin=10
 

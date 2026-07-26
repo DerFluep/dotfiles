@@ -1,8 +1,8 @@
-background-color=#3c3836
-text-color=#ebdbb2
-border-color=#98971a
-progress-color=over #689d6a
+background-color=#3c3836cc
+text-color=#ebdbb2ff
+border-color=#98971aff
+progress-color=over #689d6aff
 
 [urgency=high]
-border-color=#cc241d
+border-color=#cc241dff
 default-timeout=0
