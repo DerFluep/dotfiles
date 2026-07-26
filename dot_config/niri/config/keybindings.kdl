@@ -278,6 +278,7 @@ binds {
     Mod+N { spawn-sh "~/Scripts/notes.sh"; }
     Mod+Equal { spawn-sh "~/Scripts/=.sh"; }
     Mod+Home { spawn-sh "makoctl restore"; }
+    Mod+T { spawn-sh "~/Scripts/switch_theme.sh"; }
     Ctrl+Alt+Delete { spawn-sh "kitty btop"; }
     Mod+Shift+E { spawn-sh "~/Scripts/shutdown.sh"; }
     Mod+M { quit; }

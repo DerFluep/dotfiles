@@ -4,9 +4,8 @@
 // See the binds section below for more spawn examples.
 
 spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
-spawn-sh-at-startup "swaybg -i ~/.config/hypr/11.jpg"
+spawn-sh-at-startup "swaybg -i ~/.config/wallpaper/wallpaper.png"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"
-spawn-at-startup "hyprpaper"
 spawn-sh-at-startup "arch-update --tray"
 spawn-sh-at-startup "openrgb --startminimized --profile 'blue'"
