@@ -12,6 +12,7 @@ Catppuccin)
   cp ~/.config/fuzzel/themes/catppuccin.ini ~/.config/fuzzel/themes/colors.ini
   cp ~/.config/qt5ct/colors/Catppuccin-Mocha.conf ~/.config/qt5ct/colors/colors.conf
   cp ~/.config/qt6ct/colors/Catppuccin-Mocha.conf ~/.config/qt6ct/colors/colors.conf
+  cp ~/.config/btop/themes/catppuccin_mocha.theme ~/.config/btop/themes/theme.theme
   # nvim
   mv ~/.config/nvim/lua/plugins/catppuccin.lua.bak ~/.config/nvim/lua/plugins/catppuccin.lua
   mv ~/.config/nvim/lua/plugins/gruvbox.lua ~/.config/nvim/lua/plugins/gruvbox.lua.bak
@@ -29,6 +30,7 @@ Gruvbox)
   cp ~/.config/fuzzel/themes/gruvbox.ini ~/.config/fuzzel/themes/colors.ini
   cp ~/.config/qt5ct/colors/gruvbox.conf ~/.config/qt5ct/colors/colors.conf
   cp ~/.config/qt6ct/colors/gruvbox.conf ~/.config/qt6ct/colors/colors.conf
+  cp ~/.config/btop/themes/gruvbox_dark_v2.theme ~/.config/btop/themes/theme.theme
   # nvim
   mv ~/.config/nvim/lua/plugins/catppuccin.lua ~/.config/nvim/lua/plugins/catppuccin.lua.bak
   mv ~/.config/nvim/lua/plugins/gruvbox.lua.bak ~/.config/nvim/lua/plugins/gruvbox.lua
