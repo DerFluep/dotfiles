@@ -1,10 +1,19 @@
 #!/bin/bash
 
 choise=$(
-  echo -e "Catppuccin\nGruvbox\nTokyonight" | fuzzel -d
+  echo -e "Switch Wallpaper\nCatppuccin\nGruvbox\nTokyonight" | fuzzel -d --placeholder "Select Theme" --counter
 )
 
 case "$choise" in
+"Switch Wallpaper")
+  cd ~/.config/wallpaper/
+  image=$(
+    fd . -t f -E wallpaper.png | fuzzel -d --placeholder "Select Wallpaper" --counter
+  )
+  cp $image wallpaper.png
+  killall swaybg
+  niri msg action spawn -- swaybg -i $PWD/wallpaper.png
+  ;;
 Catppuccin)
   cp ~/.config/niri/config/colors/catppuccin.kdl ~/.config/niri/config/colors/colors.kdl
   cp ~/.config/waybar/colors/catppuccin.css ~/.config/waybar/colors/colors.css
@@ -16,9 +25,6 @@ Catppuccin)
   cp ~/.config/mako/colors/catppuccin ~/.config/mako/colors/colors
   # nvim
   sed -i 's/colorscheme = "[^"]*"/colorscheme = "catppuccin"/' ~/.config/nvim/lua/plugins/theme.lua
-  cp ~/.config/wallpaper/catppuccin.png ~/.config/wallpaper/wallpaper.png
-  killall swaybg
-  niri msg action spawn -- swaybg -i ~/.config/wallpaper/wallpaper.png
   kitten theme catppuccin-mocha
   killall waybar
   niri msg action spawn -- waybar
@@ -36,9 +42,6 @@ Gruvbox)
   cp ~/.config/mako/colors/gruvbox ~/.config/mako/colors/colors
   # nvim
   sed -i 's/colorscheme = "[^"]*"/colorscheme = "gruvbox"/' ~/.config/nvim/lua/plugins/theme.lua
-  cp ~/.config/wallpaper/gruvbox.jpg ~/.config/wallpaper/wallpaper.png
-  killall swaybg
-  niri msg action spawn -- swaybg -i ~/.config/wallpaper/wallpaper.png
   kitten theme gruvbox dark hard
   killall waybar
   niri msg action spawn -- waybar
@@ -56,9 +59,6 @@ Tokyonight)
   cp ~/.config/mako/colors/tokyonight ~/.config/mako/colors/colors
   # nvim
   sed -i 's/colorscheme = "[^"]*"/colorscheme = "tokyonight"/' ~/.config/nvim/lua/plugins/theme.lua
-  cp ~/.config/wallpaper/tokyonight.png ~/.config/wallpaper/wallpaper.png
-  killall swaybg
-  niri msg action spawn -- swaybg -i ~/.config/wallpaper/wallpaper.png
   kitten theme tokyo night
   killall waybar
   niri msg action spawn -- waybar
