@@ -16,7 +16,6 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -273,14 +272,13 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     // Mod+E { spawn-sh "kitty yazi"; }
-    Mod+W { spawn "zen-browser"; }
-    Mod+B { spawn-sh "~/Scripts/bookmarks.sh"; }
-    Mod+N { spawn-sh "~/Scripts/notes.sh"; }
-    Mod+Equal { spawn-sh "~/Scripts/=.sh"; }
-    Mod+Home { spawn-sh "makoctl restore"; }
-    Mod+T { spawn-sh "~/Scripts/switch_theme.sh"; }
-    Ctrl+Alt+Delete { spawn-sh "kitty btop"; }
-    Mod+Shift+E { spawn-sh "~/Scripts/shutdown.sh"; }
+    Mod+W hotkey-overlay-title="Open Webbrowser" { spawn "zen-browser"; }
+    Mod+N hotkey-overlay-title="Create/Edit Notes" { spawn-sh "~/Scripts/notes.sh"; }
+    Mod+Equal hotkey-overlay-title="Open Calculator" { spawn-sh "~/Scripts/=.sh"; }
+    Mod+Home hotkey-overlay-title="Open Notification history" { spawn-sh "makoctl restore"; }
+    Mod+T hotkey-overlay-title="Open Theming menu" { spawn-sh "~/Scripts/switch_theme.sh"; }
+    Ctrl+Alt+Delete hotkey-overlay-title="Open System manager" { spawn-sh "kitty btop"; }
+    Mod+Shift+E hotkey-overlay-title="Open Power menu" { spawn-sh "~/Scripts/shutdown.sh"; }
     Mod+M { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
