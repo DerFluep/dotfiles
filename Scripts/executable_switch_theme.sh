@@ -6,13 +6,7 @@ choise=$(
 
 case "$choise" in
 "Switch Wallpaper")
-  cd ~/.config/wallpaper/
-  image=$(
-    fd . -t f -E wallpaper.png | fuzzel -d --placeholder "Select Wallpaper" --counter
-  )
-  cp $image wallpaper.png
-  killall swaybg
-  niri msg action spawn -- swaybg -i $PWD/wallpaper.png
+  kitty yazi ~/.config/wallpaper/
   ;;
 Catppuccin)
   cp ~/.config/niri/config/colors/catppuccin.kdl ~/.config/niri/config/colors/colors.kdl
