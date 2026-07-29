@@ -18,6 +18,7 @@ play = [
   { run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
 ]
 open = [
+  { run = "xdg-open %s1",    desc = "Open", for = "linux" },
   { run = "cp %s1 ~/.config/wallpaper/wallpaper.png; killall swaybg; niri msg action spawn -- swaybg -i ~/.config/wallpaper/wallpaper.png", desc = "Set as Wallpaper", for = "unix" },
 ]
 
