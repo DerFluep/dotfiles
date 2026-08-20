@@ -1,15 +1,15 @@
-// gruvbox
+// tokyonight
 layout {
-    background-color "#282828"
+    background-color "#1a1b26"
 
     focus-ring {
-        active-color "#98971a"
-        inactive-color "#928374"
+        active-color "#7aa2f7"
+        inactive-color "#3b4261"
     }
 
     border {
-        active-color "#98971a"
-        inactive-color "#928374"
-        urgent-color "#cc241d"
+        active-color "#7aa2f7"
+        inactive-color "#3b4261"
+        urgent-color "#db4b4b"
     }
 }

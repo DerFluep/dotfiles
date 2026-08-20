@@ -3,7 +3,7 @@
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
+spawn-sh-at-startup "systemctl --user start plasma-polkit-agent.service"
 spawn-sh-at-startup "swaybg -i ~/.config/wallpaper/wallpaper.png"
 spawn-at-startup "mako"
 spawn-at-startup "waybar"

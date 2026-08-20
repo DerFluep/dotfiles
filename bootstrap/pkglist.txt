@@ -21,7 +21,6 @@ github-cli
 greetd
 greetd-tuigreet
 grim
-hyprpolkitagent
 imagemagick
 kitty
 kvantum
@@ -49,6 +48,7 @@ pacman-contrib
 pavucontrol
 perl-image-exiftool
 pipewire
+polkit-kde-agent
 qt5ct
 qt5-wayland
 qt6ct
