@@ -272,7 +272,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     // Mod+E { spawn-sh "kitty yazi"; }
-    Mod+W hotkey-overlay-title="Open Webbrowser" { spawn "zen-browser"; }
+    Mod+W hotkey-overlay-title="Open Webbrowser" { spawn "vivaldi"; }
     Mod+N hotkey-overlay-title="Create/Edit Notes" { spawn-sh "~/Scripts/notes.sh"; }
     Mod+Equal hotkey-overlay-title="Open Calculator" { spawn-sh "~/Scripts/=.sh"; }
     Mod+Home hotkey-overlay-title="Open Notification history" { spawn-sh "makoctl restore"; }

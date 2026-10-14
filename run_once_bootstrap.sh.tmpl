@@ -37,15 +37,11 @@ if [[ "$run" == y ]]; then
 
 	# add NAS to fstab
 	if ! grep -q 'NAS' /etc/fstab; then 
-  	sudo mkdir /mnt/nas
-  	sudo mkdir /mnt/nas/photos_shared
-  	sudo mkdir /mnt/nas/PlexMedia
     echo "" | sudo tee -a /etc/fstab > /dev/null
   	echo "# NAS" | sudo tee -a /etc/fstab > /dev/null
   	echo "192.168.178.2:/volume1/homes/jp           /home/jp/nas/data  nfs     defaults,x-systemd.automount,x-systemd.mount-timeout=30,x-systemd.idle-timeout=300,nofail,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
   	echo "192.168.178.2:/volume1/photo              /home/jp/nas/photos/  nfs     defaults,x-systemd.automount,x-systemd.mount-timeout=30,x-systemd.idle-timeout=300,nofail,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
   	echo "192.168.178.2:/volume1/media              /home/jp/nas/media/  nfs     defaults,x-systemd.automount,x-systemd.mount-timeout=30,x-systemd.idle-timeout=300,nofail,_netdev 0 0" | sudo tee -a /etc/fstab > /dev/null
-  	sudo ln -s /mnt/nas/ ~/
   	echo "Added NAS to fstab!"
 	fi
 

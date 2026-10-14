@@ -24,10 +24,10 @@ image/x-targa=swayimg.desktop
 image/x-tga=swayimg.desktop
 image/fuji-raf=swayimg.desktop
 image/x-fuji-raf=swayimg.desktop
-x-scheme-handler/http=zen.desktop
-x-scheme-handler/https=zen.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
 x-scheme-handler/chrome=zen.desktop
-text/html=zen.desktop
+text/html=vivaldi-stable.desktop
 application/x-extension-htm=zen.desktop
 application/x-extension-html=zen.desktop
 application/x-extension-shtml=zen.desktop
@@ -36,8 +36,8 @@ application/x-extension-xhtml=zen.desktop
 application/x-extension-xht=zen.desktop
 application/pdf=zen.desktop
 x-scheme-handler/discord=vesktop.desktop
-x-scheme-handler/about=zen.desktop
-x-scheme-handler/unknown=zen.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
 x-scheme-handler/mailto=zen.desktop
 
 [Added Associations]
