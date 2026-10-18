@@ -6,7 +6,7 @@ else
   title=$(mmsg get focusing-client | jq -j '"\(.appid)"')
 fi
 
-filepath=~/test/
+filepath=~/nas/data/Photos/Screenshots
 fullpath="${filepath}/${title}"
 mkdir -p $fullpath
 date=$(date +%y%m%d-%H:%M:%S)
