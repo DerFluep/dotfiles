@@ -13,20 +13,16 @@
         "window"
     ],
     "modules-center": [
-        "clock#date", 
-        "clock#time"
+        "clock#date",
+        "clock#time",
     ],
     "modules-right": [
         "hideclients",
         "cpu",
         "memory",
         "network",
-        "tray",
-        // "keymode",
-        // "keyboardlayout",
-        "pulseaudio",
-        "backlight",
         "battery",
+        "tray",
     ],
 
     "workspaces": {
@@ -42,8 +38,6 @@
     },
     "window": {
         "format": "{}",
-        "on-click": "bash ~/.config/mango/scripts/screenshot.sh",
-        "on-click-right": "python /home/wrq/tool/ocr.py"
     },
 
     "network": {
@@ -51,25 +45,25 @@
         // {ssid}/{essid}, {signal} icon, {strength}/{signal-percent} percent,
         // {status}, {type}, {icon}, {down}/{up} (speed in format-alt)
         "format": "{icon} {ifname}",
-        "format-wifi": "{signal} {ssid}",
-        "format-disconnected": "{icon}",
-        "icon-wifi": "󰖩",
+        "format-wifi": "{icon}",
+        "format-ethernet": "{icon}",
+        "format-disconnected": "⚠ Disconnected",
+        "icon-wifi": " ",
         "icon-ethernet": "󰈀",
-        "icon-disconnected": "󰖪",
         "signal-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "format-alt": "↓{down} ↑{up}",
-        // "interval": 1  // seconds; omit to use the global "sys-interval"
+        "interval": 30,  // seconds; omit to use the global "sys-interval"
     },
     "hideclients": {
         "format": " {}"
     },
     "cpu": {
-        "format": " {load}%",
-        // "interval": 1  // seconds; omit to use the global "sys-interval"
+        "format": "󰍛 {usage}%",
+        "interval": 1  // seconds; omit to use the global "sys-interval"
     },
     "memory": {
-        "format": " {}%",
-        // "interval": 5  // seconds; omit to use the global "sys-interval"
+        "format": " {}%",
+        "interval": 1  // seconds; omit to use the global "sys-interval"
     },
     "backlight": {
         "format": "{icon} {percent}%",
@@ -96,7 +90,7 @@
         // "hide-on-ac": true
     },
     "clock#date": {
-        "format": " {:L%b%d·%A}"
+        "format": " {:L%d %b}"
     },
     "clock#time": {
         "format": " {:L%H:%M}"

@@ -73,6 +73,7 @@
 #network,
 #temperature,
 #idle_inhibitor,
+#battery,
 #tray {
     padding-left: 10px;
     padding-right: 10px;
@@ -144,6 +145,13 @@
 
 #temperature.critical {
     color: @critical;
+}
+
+#battery {
+  border-left: 1px solid @border;
+  border-radius: 7px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #tray {

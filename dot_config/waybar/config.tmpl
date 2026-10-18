@@ -19,9 +19,11 @@
     "modules-left": [
         "hyprland/workspaces",
         "niri/workspaces",
+        "mango/workspaces",
         "hyprland/submap",
         "hyprland/window",
         "niri/window",
+        "mango/window",
     ],
     "modules-center": [
         "clock",
@@ -32,6 +34,7 @@
         "temperature",
         "memory",
         "network",
+        "battery",
         "tray",
     ],
 
@@ -72,6 +75,10 @@
         "tooltip-format": "{ifname}: {essid} {ipaddr}"
     },
 
+    "mango/workspaces": {
+        "hide-empty": true,
+    },
+
     "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -98,6 +105,12 @@
         {{ end}}
     },
 
+    "mango/window": {
+        "format": "{title}",
+        "icon": true,
+        "icon-size": 16,
+    },
+
     "niri/window": {
         "format": "{}",
     },
@@ -118,6 +131,21 @@
       "interval": 1,
       "format": " {temperatureC:>2}°C"
     },
+    "battery": {
+        "interval": 10,
+        "stats": {
+            "warning": 30,
+            "critical": 15,
+          },
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical 'Very low Battery!'",
+            "on-discharging": "notify-send -u normal 'Power Switch' Discharging",
+            "on-charging": "notify-send -u normal 'Power Switch' Charging",
+          },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+      },
     {{ end}}
 
     "tray": {
@@ -142,5 +170,5 @@
           "paused": "󰏤"
         },
         // "ignored-players": ["firefox"]
-      },
+    },
 }
