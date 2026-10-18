@@ -1,10 +1,13 @@
 #!/bin/bash
 
+title=$(mmsg get focusing-client | jq -j '"\(.appid)"')
 if [[ $title =~ ^steam_app_ ]]; then
   title=$(mmsg get focusing-client | jq -j '"\(.title)"')
-else
-  title=$(mmsg get focusing-client | jq -j '"\(.appid)"')
 fi
+
+# remove leading and trailing whitespace
+title=$(echo "$title" | sed -e 's/^[ \t]*//')
+title=$(echo "$title" | sed -e 's/\ *$//g')
 
 filepath=~/nas/data/Photos/Screenshots
 fullpath="${filepath}/${title}"
@@ -18,6 +21,7 @@ region)
   grim -g "$g" "$filepath/$date.png"
   ;;
 window)
+  notify-send -u normal "$fullpath/$date.png"
   g=$(mmsg get focusing-client | jq -r '"\(.x),\(.y) \(.width)x\(.height)"')
   [ -z "$g" ] && exit 1
   grim -g "$g" "$fullpath/$date.png"
