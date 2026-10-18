@@ -3,30 +3,32 @@
 -- ====================================================================
 
 -- Force swayimg to scan the directory for adjacent files on startup
-swayimg.imagelist.enable_adjacent(true)
+swayimg.imagelist.adjacent = true
 
 -- Set the layout rule for subsequent images you switch to
-swayimg.viewer.set_default_scale("fit")
+swayimg.viewer.default_scale = "fit"
 
 -- Force a layout recalculation when the window manager tiles/stretches the window
 swayimg.on_window_resize(function()
-	if swayimg.get_mode() == "viewer" then
-		swayimg.viewer.set_fix_scale("fit")
-	end
+	swayimg.viewer.set_fix_scale("fit")
 end)
+
+local thumb_size = 128
+swayimg.gallery.thumb_size = thumb_size
+swayimg.text.timeout = 2
 
 -- 1. VIEWER MODE: Image Switching ([ and ])
 swayimg.viewer.on_key("]", function()
-	swayimg.viewer.switch_image("next")
+	swayimg.viewer.open("next")
 end)
 
 swayimg.viewer.on_key("[", function()
-	swayimg.viewer.switch_image("prev")
+	swayimg.viewer.open("prev")
 end)
 
 -- 2. VIEWER MODE: Switch to Gallery Grid
 swayimg.viewer.on_key("g", function()
-	swayimg.set_mode("gallery")
+	swayimg.mode = "gallery"
 end)
 
 -- 3. VIEWER MODE: Panning / Scrolling (Pure h / j / k / l - INVERTED)
@@ -78,50 +80,31 @@ end)
 
 -- 5. GALLERY MODE: Grid Navigation & Selection (Return Only)
 swayimg.gallery.on_key("h", function()
-	swayimg.gallery.switch_image("left")
+	swayimg.gallery.select("left")
 end)
 swayimg.gallery.on_key("l", function()
-	swayimg.gallery.switch_image("right")
+	swayimg.gallery.select("right")
 end)
 swayimg.gallery.on_key("j", function()
-	swayimg.gallery.switch_image("down")
+	swayimg.gallery.select("down")
 end)
 swayimg.gallery.on_key("k", function()
-	swayimg.gallery.switch_image("up")
+	swayimg.gallery.select("up")
 end)
 
 swayimg.gallery.on_key("Return", function()
-	swayimg.set_mode("viewer")
+	swayimg.mode = "viewer"
 end)
 
 -- 6. GALLERY MODE: Consistent Zooming (i / o)
 swayimg.gallery.on_key("i", function()
-	local size = swayimg.gallery.get_thumb_size()
-	if size then
-		swayimg.gallery.set_thumb_size(size + 30)
-	end
+	thumb_size = thumb_size + 30
+	swayimg.gallery.thumb_size = thumb_size
 end)
 
 swayimg.gallery.on_key("o", function()
-	local size = swayimg.gallery.get_thumb_size()
-	if size and size > 60 then
-		swayimg.gallery.set_thumb_size(size - 30)
-	end
-end)
-
--- 7. VIEWER MODE: Zooming & Reset
-swayimg.viewer.on_key("i", function()
-	local scale = swayimg.viewer.get_scale()
-	if scale then
-		swayimg.viewer.set_abs_scale(scale * 1.2)
-	end
-end)
-
-swayimg.viewer.on_key("o", function()
-	local scale = swayimg.viewer.get_scale()
-	if scale then
-		swayimg.viewer.set_abs_scale(scale / 1.2)
-	end
+	thumb_size = thumb_size - 30
+	swayimg.gallery.thumb_size = thumb_size
 end)
 
 -- Lowercase 'z' fits the image cleanly to your window boundaries
@@ -136,7 +119,7 @@ end)
 
 -- 8. VIEWER MODE: Show Info Layer Again
 swayimg.viewer.on_key("Tab", function()
-	swayimg.text.show()
+	swayimg.text.visible = not swayimg.text.visible
 end)
 
 -- 9. GLOBAL: Quick Exit with 'q'
